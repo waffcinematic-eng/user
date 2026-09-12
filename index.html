@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Location Distance Finder</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        #map {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #info {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Company Location & Distance Tracker</h2>
+    <p>Aapki aur hamari company ke beech ki duri:</p>
+    
+    <div id="map"></div>
+    <div id="info">Location detect ho rahi hai... Kripya location ki permission dein.</div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // Apni Company/Office ki Location (Jaise Rajasthan mein koi jagah, example: Jaipur coordinates)
+        const companyLat = 26.9124; 
+        const companyLng = 75.7873;
+        const companyName = "Hamari Company (Rajasthan)";
+
+        // Map Initialize karein (Rajasthan ko center maan kar)
+        const map = L.map('map').setView([companyLat, companyLng], 6);
+
+        // OpenStreetMap Tile Layer add karein
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Company ka Marker Map par lagayein
+        const companyMarker = L.marker([companyLat, companyLng]).addTo(map)
+            .bindPopup(`<b>${companyName}</b>`)
+            .openPopup();
+
+        // Distance calculate karne ka formula (Haversine Formula)
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Earth ka radius kilometers mein
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = 
+                Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c; // Distance in KM
+        }
+
+        // User ki Live Location Browser se lena
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+
+                    // User ka marker map par lagayein
+                    const userMarker = L.marker([userLat, userLng]).addTo(map)
+                        .bindPopup("Aapki Current Location (jaise Mumbai)")
+                        .openPopup();
+
+                    // Dono locations ke beech ka distance nikalein
+                    const distance = calculateDistance(companyLat, companyLng, userLat, userLng);
+
+                    // Screen par distance dikhayein
+                    document.getElementById('info').innerHTML = 
+                        `Company se aapki duri lagbhag: <span style="color: #28a745;">${distance.toFixed(2)} KM</span> hai.`;
+
+                    // Map ko dono markers ke beech zoom adjust karein
+                    const bounds = L.latLngBounds([[companyLat, companyLng], [userLat, userLng]]);
+                    map.fitBounds(bounds, { padding: [50, 50] });
+
+                },
+                (error) => {
+                    document.getElementById('info').innerHTML = 
+                        "Location access nahi mil paya. Kripya browser mein location permission allow karein.";
+                    console.error(error);
+                }
+            );
+        } else {
+            document.getElementById('info').innerHTML = "Aapka browser Geolocation ko support nahi karta.";
+        }
+    </script>
+</body>
+</html>
