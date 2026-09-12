@@ -1,116 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Location Distance Finder</title>
-    
+    <title>Company Location & Price Calculator</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f4f4f9;
+            color: #333;
             text-align: center;
         }
         h2 {
-            color: #333;
+            margin-top: 15px;
+            color: #2c3e50;
         }
         #map {
-            width: 100%;
-            max-width: 800px;
-            height: 450px;
-            margin: 20px auto;
+            height: 350px;
+            width: 94%;
+            max-width: 600px;
+            margin: 10px auto;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
-        #info {
+        .info-box {
+            background: #fff;
+            width: 90%;
+            max-width: 550px;
+            margin: 15px auto;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .buy-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .amount-text {
             font-size: 18px;
             font-weight: bold;
-            color: #007BFF;
-            margin-top: 15px;
+            color: #27ae60;
+        }
+        .buy-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .buy-btn:hover {
+            background-color: #219653;
         }
     </style>
 </head>
 <body>
 
-    <h2>Company Location & Distance Tracker</h2>
-    <p>Aapki aur hamari company ke beech ki duri:</p>
-    
+    <h2>Company Location & Price Tracker</h2>
+    <p>Aapki aur hamari company ke beech ki doori aur kul kharch:</p>
+
+    <!-- Map Container -->
     <div id="map"></div>
-    <div id="info">Location detect ho rahi hai... Kripya location ki permission dein.</div>
+
+    <!-- Details & Buy Box -->
+    <div class="info-box">
+        <p id="status-text">Location detect ho rahi hai... Kripya location ki permission dein.</p>
+        
+        <div class="buy-container" id="action-section" style="display: none;">
+            <div class="amount-text" id="total-amount">Amount: ₹0</div>
+            <button class="buy-btn" onclick="makePurchase()">Buy Now</button>
+        </div>
+    </div>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
     <script>
-        // Apni Company/Office ki Location (Jaise Rajasthan mein koi jagah, example: Jaipur coordinates)
-        const companyLat = 26.9124; 
-        const companyLng = 75.7873;
-        const companyName = "Hamari Company (Rajasthan)";
+        // Company Location (Punganur, Andhra Pradesh)
+        const companyLat = 13.3667;
+        const companyLng = 78.5833;
+        const companyName = "Hamari Company (Punganur, AP)";
 
-        // Map Initialize karein (Rajasthan ko center maan kar)
-        const map = L.map('map').setView([companyLat, companyLng], 6);
+        // Map Initialize
+        const map = L.map('map').setView([companyLat, companyLng], 13);
 
-        // OpenStreetMap Tile Layer add karein
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Company ka Marker Map par lagayein
+        // Company Marker
         const companyMarker = L.marker([companyLat, companyLng]).addTo(map)
-            .bindPopup(`<b>${companyName}</b>`)
+            .bindPopup(companyName)
             .openPopup();
 
-        // Distance calculate karne ka formula (Haversine Formula)
+        // Haversine Formula for Distance Calculation
         function calculateDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371; // Earth ka radius kilometers mein
-            const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const R = 6371; // Radius of the earth in km
+            const dLat = deg2rad(lat2 - lat1);
+            const dLon = deg2rad(lon2 - lon1);
             const a = 
                 Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
                 Math.sin(dLon/2) * Math.sin(dLon/2);
             const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-            return R * c; // Distance in KM
+            return R * c; // Distance in km
         }
 
-        // User ki Live Location Browser se lena
+        function deg2rad(deg) {
+            return deg * (Math.PI/180);
+        }
+
+        // Get User Location
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const userLat = position.coords.latitude;
                     const userLng = position.coords.longitude;
 
-                    // User ka marker map par lagayein
+                    // Add User Marker
                     const userMarker = L.marker([userLat, userLng]).addTo(map)
-                        .bindPopup("Aapki Current Location (jaise Mumbai)")
+                        .bindPopup("Aapki Location")
                         .openPopup();
 
-                    // Dono locations ke beech ka distance nikalein
-                    const distance = calculateDistance(companyLat, companyLng, userLat, userLng);
-
-                    // Screen par distance dikhayein
-                    document.getElementById('info').innerHTML = 
-                        `Company se aapki duri lagbhag: <span style="color: #28a745;">${distance.toFixed(2)} KM</span> hai.`;
-
-                    // Map ko dono markers ke beech zoom adjust karein
+                    // Adjust map bounds to fit both points
                     const bounds = L.latLngBounds([[companyLat, companyLng], [userLat, userLng]]);
                     map.fitBounds(bounds, { padding: [50, 50] });
 
+                    // Calculate Distance
+                    const distanceKm = calculateDistance(companyLat, companyLng, userLat, userLng);
+                    
+                    // Rate: 1 km = ₹5
+                    const ratePerKm = 5;
+                    const totalCost = Math.round(distanceKm * ratePerKm);
+
+                    // Update UI text and show Buy button
+                    document.getElementById('status-text').innerHTML = 
+                        `Doori (Distance): <b>${distanceKm.toFixed(2)} km</b>`;
+                    
+                    document.adian-amount = totalCost; // store for use
+                    document.getElementById('total-amount').innerText = `Amount: ₹${totalCost}`;
+                    document.getElementById('action-section').style.display = 'flex';
                 },
                 (error) => {
-                    document.getElementById('info').innerHTML = 
-                        "Location access nahi mil paya. Kripya browser mein location permission allow karein.";
-                    console.error(error);
+                    document.getElementById('status-text').innerText = 
+                        "Location permission nahi mili ya error aayi. Kripya overlay apps band karke dobara koshish karein.";
                 }
             );
         } else {
-            document.getElementById('info').innerHTML = "Aapka browser Geolocation ko support nahi karta.";
+            document.getElementById('status-text').innerText = "Aapka browser Geolocation ko support nahi karta.";
+        }
+
+        function makePurchase() {
+            alert("Aapka order process kiya ja raha hai! Total Amount: " + document.getElementById('total-amount').innerText);
         }
     </script>
 </body>
