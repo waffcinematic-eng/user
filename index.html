@@ -1,338 +1,137 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASUS Chromebook CM1405 Clone</title>
+    <title>ASUS Chromebook CM1405 (2026) - Amazon.in</title>
     <style>
-        /* 1. ग्लोबल स्टाइल्स */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #EAEDED;
-            color: #0F1111;
-        }
+        /* 1. Global Reset & Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Amazon Ember", Arial, sans-serif; background-color: #EAEDED; color: #0F1111; font-size: 14px; line-height: 1.4; }
+        a { color: #007185; text-decoration: none; }
+        a:hover { color: #C7511F; text-decoration: underline; }
 
-        /* 2. अमेज़न हेडर (काली पट्टी) */
-        .header {
-            background-color: #131921;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        /* 2. Top Header */
+        .header { background-color: #131921; padding: 10px 20px; display: flex; align-items: center; color: white; gap: 15px; }
+        .logo { font-size: 22px; font-weight: bold; color: #FF9900; cursor: pointer; }
+        .location { font-size: 12px; display: flex; flex-direction: column; }
+        .location span { font-weight: bold; }
+        .search-container { flex-grow: 1; display: flex; max-width: 800px; }
+        .search-select { padding: 10px; background-color: #f3f3f3; border: none; border-radius: 4px 0 0 4px; font-size: 12px; border-right: 1px solid #ddd; }
+        .search-input { width: 100%; padding: 10px; border: none; font-size: 14px; outline: none; }
+        .search-btn { background-color: #FEBD69; border: none; padding: 0 22px; border-radius: 0 4px 4px 0; cursor: pointer; font-weight: bold; }
+        .search-btn:hover { background-color: #F3A847; }
+        .nav-right { display: flex; gap: 20px; font-size: 12px; }
+        .nav-right div span { font-weight: bold; display: block; font-size: 14px; }
 
-        .logo {
-            color: #FF9900;
-            font-size: 22px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        /* 3. Sub Navigation Bar */
+        .sub-nav { background-color: #232F3E; color: white; padding: 8px 20px; display: flex; gap: 15px; font-size: 14px; font-weight: 500; }
+        .sub-nav div { cursor: pointer; }
+        .sub-nav div:hover { outline: 1px solid white; }
 
-        .search-bar {
-            flex-grow: 1;
-            margin: 0 20px;
-            display: flex;
-        }
+        /* 4. Main Product Wrapper (3-Column Layout) */
+        .product-container { max-width: 1500px; margin: 15px auto; background-color: white; padding: 20px; display: flex; gap: 25px; }
+        
+        /* Column 1: Image Frame */
+        .image-column { flex: 1.2; text-align: center; position: sticky; top: 10px; height: fit-content; }
+        .main-image-placeholder { width: 100%; max-width: 450px; height: 450px; background-color: #F8F8F8; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center; color: #666; font-weight: bold; margin-bottom: 15px; border-radius: 4px; }
+        
+        /* Column 2: Product Core Info */
+        .info-column { flex: 2; }
+        .product-title { font-size: 24px; font-weight: 500; line-height: 32px; margin-bottom: 5px; color: #0F1111; }
+        .brand-link { font-size: 14px; margin-bottom: 8px; display: block; }
+        .rating-row { color: #007185; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-size: 14px; }
+        .badge-choice { background-color: #232F3E; color: white; padding: 3px 6px; font-size: 12px; font-weight: bold; width: fit-content; margin-bottom: 15px; }
 
-        .search-input {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            font-size: 14px;
-        }
+        /* Pricing Block */
+        .price-box { border-top: 1px solid #E7E7E7; border-bottom: 1px solid #E7E7E7; padding: 15px 0; margin-bottom: 20px; }
+        .discount-pct { color: #CC0C39; font-size: 28px; font-weight: 300; }
+        .price-num { font-size: 28px; font-weight: 500; }
+        .mrp-row { color: #565959; font-size: 14px; margin-top: 5px; }
+        .tax-inc { font-size: 12px; color: #0F1111; display: block; margin-top: 2px; }
 
-        .search-btn {
-            background-color: #FEBD69;
-            border: none;
-            padding: 0 20px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-weight: bold;
-        }
+        /* Offers Carousel Grid */
+        .offers-section { margin-bottom: 25px; }
+        .offers-title { font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+        .offers-grid { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; }
+        .offer-card { border: 1px solid #D5D9D9; border-radius: 8px; padding: 12px; min-width: 160px; flex: 1; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+        .offer-card h5 { font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #0F1111; }
+        .offer-card p { font-size: 12px; color: #565959; }
 
-        .nav-links {
-            color: white;
-            font-size: 14px;
-            display: flex;
-            gap: 20px;
-        }
+        /* Service Icons Row */
+        .services-row { display: flex; gap: 15px; margin: 20px 0; border-bottom: 1px solid #E7E7E7; padding-bottom: 20px; overflow-x: auto; }
+        .service-item { flex: 1; text-align: center; min-width: 85px; }
+        .service-icon-box { width: 40px; height: 40px; background-color: #F8F8F8; border-radius: 50%; margin: 0 auto 8px auto; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #555; }
+        .service-item p { font-size: 12px; color: #007185; font-weight: 500; }
 
-        /* 3. सब-मेन्यू पट्टी */
-        .sub-nav {
-            background-color: #232F3E;
-            color: white;
-            padding: 8px 20px;
-            font-size: 14px;
-            display: flex;
-            gap: 15px;
-        }
+        /* Variants Configurations */
+        .variant-section { margin-bottom: 20px; }
+        .variant-title { font-size: 14px; font-weight: bold; margin-bottom: 8px; }
+        .variant-buttons { display: flex; gap: 10px; }
+        .var-btn { border: 1px solid #888; padding: 8px 16px; background: white; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 500; }
+        .var-btn.active { border: 2px solid #E47911; background-color: #FDEDDE; font-weight: bold; }
 
-        /* 4. मुख्य 3-कॉलम लेआउट */
-        .main-container {
-            max-width: 1500px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            display: flex;
-            gap: 30px;
-        }
+        /* Bullet Bulletins */
+        .bullets-section h3 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
+        .bullet-list { padding-left: 18px; font-size: 14px; line-height: 1.5; color: #0F1111; }
+        .bullet-list li { margin-bottom: 6px; }
 
-        /* कॉलम 1: इमेज */
-        .column-left {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
+        /* Column 3: Sticky Checkout Buy Box */
+        .buy-column { flex: 0.8; border: 1px solid #D5D9D9; border-radius: 8px; padding: 18px; max-width: 290px; height: fit-content; background-color: #FFFFFF; }
+        .buy-price { font-size: 24px; font-weight: 500; margin-bottom: 8px; }
+        .delivery-eta { font-size: 13px; margin-bottom: 12px; }
+        .stock-status { color: #B12704; font-size: 18px; font-weight: 500; margin-bottom: 15px; }
+        .qty-select { width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #D5D9D9; background-color: #F0F2F2; font-size: 13px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(15,17,17,.15); }
+        .action-btn { width: 100%; padding: 10px; border-radius: 20px; border: 1px solid; font-size: 14px; cursor: pointer; margin-bottom: 10px; font-weight: 500; text-align: center; }
+        .btn-add-cart { background-color: #FFD814; border-color: #FCD200; color: #0F1111; }
+        .btn-add-cart:hover { background-color: #F7CA00; }
+        .btn-buy-now { background-color: #FFA41C; border-color: #FF8F00; color: #0F1111; }
+        .btn-buy-now:hover { background-color: #FA8900; }
+        .secure-note { font-size: 12px; color: #565959; margin-top: 12px; text-align: center; }
 
-        .product-image-placeholder {
-            width: 100%;
-            max-width: 400px;
-            height: 400px;
-            background-color: #f2f2f2;
-            border: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+        /* 5. Suggestion Carousel Section */
+        .suggestions-container { max-width: 1500px; margin: 20px auto; background-color: white; padding: 20px; }
+        .suggestions-title { font-size: 20px; font-weight: bold; color: #CC6600; margin-bottom: 15px; border-bottom: 1px solid #E7E7E7; padding-bottom: 8px; }
+        .suggestions-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; overflow-x: auto; }
+        .suggest-card { border: 1px solid #E7E7E7; padding: 12px; border-radius: 4px; background: #fff; text-align: left; display: flex; flex-direction: column; justify-content: space-between; }
+        .suggest-img-box { width: 100%; height: 140px; background-color: #F7F7F7; border: 1px dashed #ddd; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #777; margin-bottom: 10px; border-radius: 4px; }
+        .suggest-title { font-size: 13px; font-weight: 500; height: 54px; overflow: hidden; margin-bottom: 5px; color: #007185; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+        .suggest-rating { color: #777; font-size: 12px; margin-bottom: 5px; }
+        .suggest-price { font-size: 15px; font-weight: bold; color: #B12704; }
+        .suggest-mrp { font-size: 12px; color: #565959; text-decoration: line-through; }
 
-        /* कॉलम 2: डिटेल्स */
-        .column-center {
-            flex: 2;
-        }
+        /* 6. Technical Specifications Table */
+        .specs-wrapper { max-width: 1500px; margin: 20px auto; background-color: white; padding: 20px; }
+        .specs-header { font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+        .specs-table { width: 100%; max-width: 700px; border-collapse: collapse; }
+        .specs-table tr:nth-child(even) { background-color: #F7F7F7; }
+        .specs-table td { padding: 12px; border: 1px solid #E7E7E7; font-size: 14px; }
+        .spec-lbl { font-weight: bold; width: 35%; color: #444; }
 
-        .product-title {
-            font-size: 24px;
-            font-weight: 500;
-            line-height: 32px;
-            margin-bottom: 10px;
-        }
-
-        .rating {
-            color: #007185;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .price-section {
-            border-top: 1px solid #eeeeee;
-            border-bottom: 1px solid #eeeeee;
-            padding: 15px 0;
-            margin-bottom: 20px;
-        }
-
-        .discount-badge {
-            color: #CC0C39;
-            font-size: 28px;
-            font-weight: 300;
-        }
-
-        .current-price {
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .mrp {
-            color: #565959;
-            font-size: 14px;
-            text-decoration: line-through;
-        }
-
-        .about-list {
-            padding-left: 20px;
-            line-height: 22px;
-            font-size: 14px;
-        }
-
-        /* कॉलम 3: बाय बॉक्स (राइट साइड) */
-        .column-right {
-            flex: 1;
-            border: 1px solid #D5D9D9;
-            border-radius: 8px;
-            padding: 20px;
-            max-width: 300px;
-            height: fit-content;
-        }
-
-        .right-price {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .stock-status {
-            color: #B12704;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 20px;
-            border: 1px solid;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .btn-cart {
-            background-color: #FFD814;
-            border-color: #FCD200;
-        }
-
-        .btn-buy {
-            background-color: #FFA41C;
-            border-color: #FF8F00;
-        }
-
-        /* 5. स्पेसिफिकेशन्स टेबल */
-        .specs-container {
-            max-width: 1500px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-        }
-
-        .specs-table {
-            width: 100%;
-            max-width: 600px;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .specs-table td {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            font-size: 14px;
-        }
-
-        .specs-label {
-            font-weight: bold;
-            width: 40%;
-        }
-
-        /* 6. फूटर */
-        .footer {
-            background-color: #232F3E;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 14px;
-            margin-top: 50px;
-        }
+        /* 7. Site Footer */
+        .footer-back { background-color: #37475A; color: white; text-align: center; padding: 15px 0; font-size: 12px; cursor: pointer; font-weight: 500; }
+        .footer-back:hover { background-color: #485769; }
+        .footer-links { background-color: #232F3E; color: white; padding: 40px 20px; display: flex; justify-content: center; gap: 80px; font-size: 12px; border-bottom: 1px solid #3a4553; }
+        .footer-col h4 { font-size: 14px; margin-bottom: 12px; font-weight: bold; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 8px; color: #DDD; cursor: pointer; }
+        .footer-col ul li:hover { text-decoration: underline; }
+        .footer-bottom { background-color: #131921; color: #b6b6b6; padding: 20px; text-align: center; font-size: 12px; }
     </style>
 </head>
 <body>
 
-    <!-- 2. अमेज़न हेडर -->
+    <!-- 2. Header Bar -->
     <header class="header">
         <div class="logo">amazon.in</div>
-        <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Search Amazon.in">
+        <div class="location">
+            Deliver to Mumbai 400001
+            <span>Update location</span>
+        </div>
+        <div class="search-container">
+            <select class="search-select">
+                <option>Computers & Accessories</option>
+            </select>
+            <input type="text" class="search-input" value="ASUS Chromebook CM1405" readonly>
             <button class="search-btn">Go</button>
         </div>
-        <div class="nav-links">
-            <div>नमस्ते, साइन इन करें</div>
-            <div>ऑर्डर्स</div>
-            <div><b>कार्ट (0)</b></div>
-        </div>
-    </header>
-
-    <!-- 3. सब-नेन्यू पट्टी -->
-    <nav class="sub-nav">
-        <div>सभी (All)</div>
-        <div>Mobiles</div>
-        <div>Electronics</div>
-        <div>Customer Service</div>
-        <div>Today's Deals</div>
-    </nav>
-
-    <!-- 4. मुख्य 3-कॉलम हिस्सा -->
-    <main class="main-container">
-        
-        <!-- कॉलम 1: इमेज बॉक्स -->
-        <section class="column-left">
-            <div class="product-image-placeholder">
-                [यहाँ लैपटॉप की फोटो लगाएं]
-            </div>
-            <p style="font-size: 12px; color: #565959;">इमेज पर ज़ूम करने के लिए माउस ले जाएं</p>
-        </section>
-
-        <!-- कॉलम 2: प्रोडक्ट डिटेल्स -->
-        <section class="column-center">
-            <h1 class="product-title">
-                ASUS Chromebook CM1405 (2026), MediaTek Kompanio 540 Processor, 4GB RAM, 64GB SSD, 14" FHD Display, Chrome OS, Pure Grey
-            </h1>
-            <div class="rating">⭐⭐⭐⭐⭐ 4.0 (11 रेटिंग्स) | Amazon's Choice</div>
-            
-            <div class="price-section">
-                <span class="discount-badge">-45%</span>
-                <span class="current-price">₹20,990.00</span>
-                <div class="mrp">एम.आर.पी.: ₹37,990.00</div>
-                <small style="color: #0F1111;">सभी टैक्स शामिल हैं</small>
-            </div>
-
-            <h3>इस आइटम के बारे में:</h3>
-            <ul class="about-list">
-                <li><b>प्रोसेसर:</b> MediaTek Kompanio 540 बेहतरीन परफॉर्मेंस के लिए।</li>
-                <li><b>मेमोरी और स्टोरेज:</b> 4GB LPDDR5X RAM और 64GB SSD स्टोरेज।</li>
-                <li><b>डिस्प्ले:</b> 14.0 इंच का फुल एचडी (FHD) एंटी-ग्लेयर डिस्प्ले।</li>
-                <li><b>ऑपरेटिंग सिस्टम:</b> गूगल का तेज़ और सुरक्षित Chrome OS।</li>
-            </ul>
-        </section>
-
-        <!-- कॉलम 3: बाय बॉक्स (राइट साइड) -->
-        <section class="column-right">
-            <div class="right-price">₹20,990.00</div>
-            <p style="font-size: 14px; margin: 5px 0;">फ्री डिलीवरी: <b>गुरुवार, 17 सितंबर</b></p>
-            <div class="stock-status">स्टॉक में है (In Stock).</div>
-            
-            <button class="btn btn-cart">Add to Cart (कार्ट में जोड़ें)</button>
-            <button class="btn btn-buy">Buy Now (अभी खरीदें)</button>
-            
-            <p style="font-size: 12px; color: #565959; margin-top: 15px;">सुरक्षित ट्रांजैक्शन और 10 दिन का रिप्लेसमेंट।</p>
-        </section>
-
-    </main>
-
-    <!-- 5. स्पेसिफिकेशन्स टेबल -->
-    <div class="specs-container">
-        <h2>तकनीकी विवरण (Technical Details)</h2>
-        <table class="specs-table">
-            <tr>
-                <td class="specs-label">ब्रांड</td>
-                <td>ASUS</td>
-            </tr>
-            <tr>
-                <td class="specs-label">मॉडल का नाम</td>
-                <td>ASUS Chromebook CM1405</td>
-            </tr>
-            <tr>
-                <td class="specs-label">स्क्रीन का आकार</td>
-                <td>14 Inches</td>
-            </tr>
-            <tr>
-                <td class="specs-label">रैम साइज़</td>
-                <td>4 GB</td>
-            </tr>
-            <tr>
-                <td class="specs-label">ऑपरेटिंग सिस्टम</td>
-                <td>Chrome OS</td>
-            </tr>
-        </table>
-    </div>
-
-    <!-- 6. फूटर -->
-    <footer class="footer">
-        <p>© 1996-2026, Amazon.com, Inc. या उसके सहयोगी</p>
-        <p style="font-size: 12px; color: #ccc; margin-top: 10px;">यह एक क्लोन वेबपेज प्रोजेक्ट है।</p>
-    </footer>
-
-</body>
-</html>
