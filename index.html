@@ -1,117 +1,180 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Location & Price Calculator</title>
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>ASUS Chromebook Prototype</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: #eaeded;
+            color: #0f1111;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 15px;
+        }
+        .header {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+        .rating {
+            color: #007185;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .product-title {
+            font-size: 15px;
+            color: #0f1111;
+            line-height: 1.4;
+        }
+        .badge {
+            background-color: #232f3e;
+            color: white;
+            padding: 3px 6px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .price-section {
+            margin: 15px 0;
+        }
+        .discount {
+            color: #cc0c39;
+            font-size: 24px;
+            font-weight: 500;
+        }
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .mrp {
+            font-size: 14px;
+            color: #565959;
+            text-decoration: line-through;
+        }
+        .emi-text {
+            font-size: 13px;
+            color: #0f1111;
+            margin-top: 5px;
+        }
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
             text-align: center;
         }
-        h2 {
-            margin-top: 15px;
-            color: #2c3e50;
+        .btn-cart {
+            background-color: #ffd814;
+            color: #0f1111;
         }
-        #map {
-            height: 350px;
-            width: 94%;
-            max-width: 600px;
-            margin: 10px auto;
+        .btn-buy {
+            background-color: #ffa41c;
+            color: #0f1111;
+        }
+        .specs-box {
+            border: 1px solid #d5d9d9;
             border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            padding: 10px;
+            display: inline-block;
+            margin: 5px 5px 5px 0;
+            text-align: center;
         }
-        .info-box {
-            background: #fff;
-            width: 90%;
-            max-width: 550px;
-            margin: 15px auto;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .buy-container {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .amount-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: #27ae60;
-        }
-        .buy-btn {
-            background-color: #27ae60;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        .buy-btn:hover {
-            background-color: #219653;
+        .specs-box.active {
+            border: 2px solid #007185;
+            background-color: #f0f8f8;
         }
     </style>
 </head>
 <body>
 
-    <h2>Company Location & Price Tracker</h2>
-    <p>Aapki aur hamari company ke beech ki doori aur kul kharch:</p>
+<div class="container">
+    <!-- First Section: Product Info -->
+    <div class="rating">4.0 ★★★★★ <span style="color: #565959;">(11)</span></div>
+    <div class="product-title">
+        ASUS Chromebook CM1405 (2026), Smartchoice, MediaTek Kompanio 540 Processor, 4GB RAM, 64GB SSD, FHD, 14"(35.5 cm), 60Hz, Chrome OS, Pure Grey, 1.37 Kg
+    </div>
+    <div class="badge">Amazon's Choice</div>
 
-    <!-- Map Container -->
-    <div id="map"></div>
+    <div class="image-container">
+        <!-- Replace with actual image path or URL -->
+        <img src="laptop-image.jpg" alt="ASUS Chromebook">
+    </div>
 
-    <!-- Details & Buy Box -->
-    <div class="info-box">
-        <p id="status-text">Location detect ho rahi hai... Kripya location ki permission dein.</p>
-        
-        <div class="buy-container" id="action-section" style="display: none;">
-            <div class="amount-text" id="total-amount">Amount: ₹0</div>
-            <button class="buy-btn" onclick="makePurchase()">Buy Now</button>
+    <div>
+        <strong>Colour:</strong> Pure Grey
+    </div>
+    
+    <div style="margin-top: 10px;">
+        <strong>SSD Capacity:</strong> 64 GB
+    </div>
+    <div style="display: flex; gap: 10px; margin-top: 8px;">
+        <div class="specs-box active">64 GB</div>
+        <div class="specs-box">128 GB</div>
+    </div>
+
+    <div style="margin-top: 10px;">
+        <strong>RAM Memory Size:</strong> 4 GB
+    </div>
+    <div style="display: flex; gap: 10px; margin-top: 8px;">
+        <div class="specs-box active">
+            4 GB<br><strong>₹20,990</strong>
+        </div>
+        <div class="specs-box">
+            8.0 GB<br><span style="font-size: 12px; color: #007185;">See available options</span>
         </div>
     </div>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        // Company Location (Punganur, Andhra Pradesh)
-        const companyLat = 13.3667;
-        const companyLng = 78.5833;
-        const companyName = "Hamari Company (Punganur, AP)";
+    <hr style="border: 0; border-top: 1px solid #d5d9d9; margin: 20px 0;">
 
-        // Map Initialize
-        const map = L.map('map').setView([companyLat, companyLng], 13);
+    <!-- Second Section: Pricing & Buy Options -->
+    <div class="price-section">
+        <span class="discount">-45%</span> <span class="price">₹20,990</span>
+        <div class="mrp">M.R.P.: ₹37,990</div>
+        <div class="emi-text">EMI from ₹738. No Cost EMI available.</div>
+    </div>
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+    <div style="font-size: 13px; color: #565959; margin-bottom: 15px;">
+        FREE delivery <strong>Saturday, 19 September</strong>. Details
+    </div>
 
-        // Company Marker
-        const companyMarker = L.marker([companyLat, companyLng]).addTo(map)
-            .bindPopup(companyName)
-            .openPopup();
+    <div class="btn-container">
+        <button class="btn btn-cart">Add to cart</button>
+        <button class="btn btn-buy">Buy Now</button>
+    </div>
 
-        // Haversine Formula for Distance Calculation
-        function calculateDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371; // Radius of the earth in km
-            const dLat = deg2rad(lat2 - lat1);
-            const dLon = deg2rad(lon2 - lon1);
-            const a = 
-                Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    <div style="font-size: 13px; line-height: 1.6;">
+        <div><strong>Ships from:</strong> Amazon</div>
+        <div><strong>Sold by:</strong> Clicktech Retail Private Ltd</div>
+    </div>
+</div>
+
+</body>
+</html>
                 Math.sin(dLon/2) * Math.sin(dLon/2);
             const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
             return R * c; // Distance in km
