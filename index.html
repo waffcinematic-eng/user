@@ -1,351 +1,338 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASUS Chromebook CM1405 (2026) - Amazon.in</title>
+    <title>ASUS Chromebook CM1405 Clone</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        body { background-color: #fff; color: #0f1111; font-size: 14px; }
-        
-        /* Header */
-        .header { background-color: #131921; color: white; padding: 10px 15px; display: flex; align-items: center; justify-content: space-between; }
-        .header .logo { font-size: 18px; font-weight: bold; color: #febd69; }
-        .header .search-bar { flex-grow: 1; margin: 0 15px; display: flex; }
-        .header .search-bar input { width: 100%; padding: 8px; border: none; border-radius: 4px 0 0 4px; }
-        .header .search-bar button { background: #febd69; border: none; padding: 8px 15px; border-radius: 0 4px 4px 0; cursor: pointer; }
-        .header .nav-right { display: flex; gap: 15px; align-items: center; }
-        
-        .location-bar { background-color: #232f3e; color: white; padding: 8px 15px; font-size: 12px; }
-        
-        /* Main Container */
-        .container { max-width: 1200px; margin: 0 auto; padding: 15px; }
-        
-        /* Product Layout */
-        .product-main { display: flex; flex-wrap: wrap; gap: 20px; }
-        .media-column { flex: 1; min-width: 300px; }
-        .media-column img { width: 100%; max-width: 400px; display: block; margin: 0 auto; }
-        .gallery { display: flex; gap: 10px; margin-top: 10px; justify-content: center; }
-        .gallery img { width: 50px; height: 50px; border: 1px solid #ccc; padding: 2px; cursor: pointer; }
-        
-        .details-column { flex: 2; min-width: 300px; }
-        .store-link { color: #007185; text-decoration: none; font-size: 12px; }
-        .title { font-size: 18px; font-weight: 500; margin: 5px 0; }
-        .rating { color: #ffa41c; margin-bottom: 10px; }
-        .badge { background-color: #232f3e; color: white; padding: 3px 8px; font-size: 12px; display: inline-block; margin-bottom: 10px; }
-        
-        /* Variant Selectors */
-        .section-title { font-weight: bold; margin-top: 15px; margin-bottom: 5px; }
-        .options { display: flex; gap: 10px; margin-bottom: 15px; }
-        .option-btn { border: 1px solid #a6a6a6; padding: 8px 12px; border-radius: 4px; background: #fff; cursor: pointer; text-align: center; }
-        .option-btn.selected { border-color: #e77600; background-color: #fef8f2; font-weight: bold; }
-        
-        /* Pricing */
-        .price-section { margin: 15px 0; border-top: 1px solid #e7e7e7; border-bottom: 1px solid #e7e7e7; padding: 10px 0; }
-        .discount { color: #cc0c39; font-size: 24px; font-weight: 300; }
-        .price { font-size: 24px; font-weight: bold; }
-        .mrp { color: #565959; text-decoration: line-through; font-size: 12px; }
-        
-        /* Buy Box Elements */
-        .buy-box { border: 1px solid #d5d9d9; border-radius: 8px; padding: 15px; margin-top: 15px; background: #fff; }
-        .btn-cart { background: #ffd814; border: 1px solid #fcd200; border-radius: 20px; width: 100%; padding: 10px; margin-bottom: 10px; cursor: pointer; }
-        .btn-buy { background: #ffa41c; border: 1px solid #ff8f00; border-radius: 20px; width: 100%; padding: 10px; cursor: pointer; }
-        
-        /* Services / Trust */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 20px 0; text-align: center; font-size: 12px; color: #007185; }
-        
-        /* Tables */
-        .specs-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .specs-table td { padding: 6px 10px; border-bottom: 1px solid #e7e7e7; }
-        .specs-table td:first-child { font-weight: bold; color: #555; width: 30%; }
-        
-        /* Horizontal Cards Scroll / Grid */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-top: 15px; }
-        .product-card { border: 1px solid #e7e7e7; padding: 10px; border-radius: 4px; background: #fff; }
-        .product-card img { width: 100%; height: 120px; object-fit: contain; }
-        .product-card .p-title { font-size: 12px; height: 36px; overflow: hidden; margin: 5px 0; color: #007185; }
-        .product-card .p-price { font-size: 14px; font-weight: bold; color: #b12704; }
-        
-        /* Reviews */
-        .review-card { border-bottom: 1px solid #e7e7e7; padding: 10px 0; }
-        .review-author { font-weight: bold; margin-bottom: 3px; }
-        
-        /* Footer */
-        .back-to-top { background-color: #37475a; color: white; text-align: center; padding: 15px; font-size: 12px; margin-top: 30px; cursor: pointer; }
-        .footer-nav { background-color: #232f3e; color: white; padding: 30px 15px; display: flex; justify-content: space-around; flex-wrap: wrap; }
-        .footer-column h3 { font-size: 14px; margin-bottom: 10px; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 6px; font-size: 12px; color: #ddd; }
-        .footer-bottom { background-color: #131921; color: #ddd; text-align: center; padding: 15px; font-size: 11px; }
+        /* 1. ग्लोबल स्टाइल्स */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #EAEDED;
+            color: #0F1111;
+        }
+
+        /* 2. अमेज़न हेडर (काली पट्टी) */
+        .header {
+            background-color: #131921;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #FF9900;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+            display: flex;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+        }
+
+        .search-btn {
+            background-color: #FEBD69;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            color: white;
+            font-size: 14px;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* 3. सब-मेन्यू पट्टी */
+        .sub-nav {
+            background-color: #232F3E;
+            color: white;
+            padding: 8px 20px;
+            font-size: 14px;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* 4. मुख्य 3-कॉलम लेआउट */
+        .main-container {
+            max-width: 1500px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* कॉलम 1: इमेज */
+        .column-left {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* कॉलम 2: डिटेल्स */
+        .column-center {
+            flex: 2;
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 32px;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            color: #007185;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .price-section {
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        .discount-badge {
+            color: #CC0C39;
+            font-size: 28px;
+            font-weight: 300;
+        }
+
+        .current-price {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .mrp {
+            color: #565959;
+            font-size: 14px;
+            text-decoration: line-through;
+        }
+
+        .about-list {
+            padding-left: 20px;
+            line-height: 22px;
+            font-size: 14px;
+        }
+
+        /* कॉलम 3: बाय बॉक्स (राइट साइड) */
+        .column-right {
+            flex: 1;
+            border: 1px solid #D5D9D9;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 300px;
+            height: fit-content;
+        }
+
+        .right-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stock-status {
+            color: #B12704;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            border: 1px solid;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-cart {
+            background-color: #FFD814;
+            border-color: #FCD200;
+        }
+
+        .btn-buy {
+            background-color: #FFA41C;
+            border-color: #FF8F00;
+        }
+
+        /* 5. स्पेसिफिकेशन्स टेबल */
+        .specs-container {
+            max-width: 1500px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .specs-table {
+            width: 100%;
+            max-width: 600px;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .specs-table td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .specs-label {
+            font-weight: bold;
+            width: 40%;
+        }
+
+        /* 6. फूटर */
+        .footer {
+            background-color: #232F3E;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <div class="header">
+    <!-- 2. अमेज़न हेडर -->
+    <header class="header">
         <div class="logo">amazon.in</div>
         <div class="search-bar">
-            <input type="text" placeholder="Search Amazon.in">
-            <button>🔍</button>
+            <input type="text" class="search-input" placeholder="Search Amazon.in">
+            <button class="search-btn">Go</button>
         </div>
-        <div class="nav-right">
-            <span>Sign in ›</span>
-            <span>Your Account</span>
-            <span>🛒 0</span>
+        <div class="nav-links">
+            <div>नमस्ते, साइन इन करें</div>
+            <div>ऑर्डर्स</div>
+            <div><b>कार्ट (0)</b></div>
         </div>
-    </div>
-    <div class="location-bar">
-        📍 Delivering to Bānda 210001 - Update location
-    </div>
+    </header>
 
-    <div class="container">
-        <!-- Main Product Section -->
-        <div class="product-main">
-            <!-- Media Column -->
-            <div class="media-column">
-                <img src="https://via.placeholder.com/400x300?text=ASUS+Chromebook+CM14" alt="ASUS Chromebook CM1405">
-                <div class="gallery">
-                    <img src="https://via.placeholder.com/50?text=1" alt="Img 1">
-                    <img src="https://via.placeholder.com/50?text=2" alt="Img 2">
-                    <img src="https://via.placeholder.com/50?text=3" alt="Img 3">
-                    <img src="https://via.placeholder.com/50?text=4" alt="Img 4">
-                    <img src="https://via.placeholder.com/50?text=5" alt="Img 5">
-                    <img src="https://via.placeholder.com/50?text=6" alt="Img 6">
-                </div>
+    <!-- 3. सब-नेन्यू पट्टी -->
+    <nav class="sub-nav">
+        <div>सभी (All)</div>
+        <div>Mobiles</div>
+        <div>Electronics</div>
+        <div>Customer Service</div>
+        <div>Today's Deals</div>
+    </nav>
+
+    <!-- 4. मुख्य 3-कॉलम हिस्सा -->
+    <main class="main-container">
+        
+        <!-- कॉलम 1: इमेज बॉक्स -->
+        <section class="column-left">
+            <div class="product-image-placeholder">
+                [यहाँ लैपटॉप की फोटो लगाएं]
             </div>
+            <p style="font-size: 12px; color: #565959;">इमेज पर ज़ूम करने के लिए माउस ले जाएं</p>
+        </section>
 
-            <!-- Details Column -->
-            <div class="details-column">
-                <a href="#" class="store-link">Visit the store, ASUS</a>
-                <h1 class="title">ASUS Chromebook CM1405 (2026), Smartchoice, MediaTek Kompanio 540 Processor, 4GB RAM, 64GB SSD, FHD, 14"(35.5 cm), 60Hz, Chrome OS, Pure Grey, 1.37 Kg, CM1405CM4A-S60034, Thin & Light Laptop</h1>
-                <div class="rating">★ 4.0 out of 5 stars (11 ratings)</div>
-                <span class="badge">Amazon's Choice</span>
-                <p style="font-size: 12px; color: #565959;">100+ bought in past month</p>
-
-                <!-- Selectors -->
-                <div class="section-title">Colour: Pure Grey</div>
-
-                <div class="section-title">SSD Capacity</div>
-                <div class="options">
-                    <div class="option-btn selected">64 GB</div>
-                    <div class="option-btn">128 GB</div>
-                </div>
-
-                <div class="section-title">RAM Memory Size</div>
-                <div class="options">
-                    <div class="option-btn selected">4 GB<br><span style="font-size: 11px; color: #555;">₹20,990.00</span></div>
-                    <div class="option-btn">8.0 GB<br><span style="font-size: 11px; color: #555;">See options</span></div>
-                </div>
-
-                <!-- Price -->
-                <div class="price-section">
-                    <span class="discount">-45%</span>
-                    <span class="price">₹20,990</span>
-                    <div class="mrp">M.R.P.: ₹37,990.00</div>
-                    <p style="font-size: 12px; margin-top: 5px;">EMI from ₹738. No Cost EMI available. Inclusive of all taxes</p>
-                </div>
-
-                <!-- Buy Box -->
-                <div class="buy-box">
-                    <p style="color: #007600; font-weight: bold; margin-bottom: 10px;">In stock</p>
-                    <p style="font-size: 12px; margin-bottom: 10px;">FREE delivery <b>Saturday, 19 September</b>.</p>
-                    <button class="btn-cart">Add to Cart</button>
-                    <button class="btn-buy">Buy Now</button>
-                    <p style="font-size: 11px; color: #565959; margin-top: 10px;">Ships from: Amazon | Sold by: Clicktech Retail Private Ltd</p>
-                </div>
-
-                <!-- Trust Badges -->
-                <div class="services-grid">
-                    <div>🔄 10 days Service Centre Replacement</div>
-                    <div>🚚 Free Delivery</div>
-                    <div>🛡️ 1 Year Warranty</div>
-                    <div>💵 Pay on Delivery</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Technical Specifications -->
-        <div style="margin-top: 30px;">
-            <h2>Product details</h2>
-            <table class="specs-table">
-                <tr><td>Brand</td><td>ASUS</td></tr>
-                <tr><td>Model Name</td><td>ASUS Chromebook</td></tr>
-                <tr><td>Screen Size</td><td>14 Inches</td></tr>
-                <tr><td>Colour</td><td>Pure Grey</td></tr>
-                <tr><td>Hard Disk Size</td><td>64 GB</td></tr>
-                <tr><td>CPU Model</td><td>MediaTek Kompanio 500</td></tr>
-                <tr><td>Processor</td><td>MediaTek Kompanio 540 2.0 GHz (8 cores)</td></tr>
-                <tr><td>RAM</td><td>LPDDR5X 4GB RAM</td></tr>
-                <tr><td>OS</td><td>Chrome OS</td></tr>
-                <tr><td>Graphics</td><td>Integrated ARM Mali-G57 MC2</td></tr>
-            </table>
-        </div>
-
-        <!-- Similar Products Section (8 Items) -->
-        <div style="margin-top: 40px;">
-            <h2>Similar products</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Neopticon EBook">
-                    <div class="p-title">Neopticon EBook 11.6" HD Laptop | Celeron N4020</div>
-                    <div class="p-price">₹12,990.00</div>
-                    <div style="font-size: 10px; color: #555;">M.R.P: ₹25,000.00 (-48%)</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="ASUS Chromebook CM1505">
-                    <div class="p-title">ASUS Chromebook CM1505 (2026), 15.6" Fabric Blue</div>
-                    <div class="p-price">₹22,990.00</div>
-                    <div style="font-size: 10px; color: #555;">M.R.P: ₹31,990.00 (-28%)</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Primebook 2 Max">
-                    <div class="p-title">Primebook 2 Max (2026) | 8GB RAM, 256GB UFS</div>
-                    <div class="p-price">₹32,990.00</div>
-                    <div style="font-size: 10px; color: #555;">M.R.P: ₹49,990.00 (-34%)</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="HP Chromebook 14">
-                    <div class="p-title">HP Chromebook 14, MediaTek Kompanio 540</div>
-                    <div class="p-price">₹25,990.00</div>
-                    <div style="font-size: 10px; color: #555;">M.R.P: ₹58,733.00 (-56%)</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Lenovo Chromebook">
-                    <div class="p-title">Lenovo Chromebook, Intel Celeron N4500</div>
-                    <div class="p-price">₹16,990.00</div>
-                    <div style="font-size: 10px; color: #555;">M.R.P: ₹36,502.00 (-53%)</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="ASUS Chromebook CX1405">
-                    <div class="p-title">ASUS Chromebook CX1405 (2026), Intel N50</div>
-                    <div class="p-price">₹32,990.00</div>
-                    <div style="font-size: 10px; color: #555;">M.R.P: ₹51,990.00 (-37%)</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Acer Chromebook">
-                    <div class="p-title">Acer Chromebook, MediaTek Kompanio 540</div>
-                    <div class="p-price">₹19,990.00</div>
-                    <div style="font-size: 10px; color: #555;">M.R.P: ₹36,999.00 (-46%)</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Primebook 2 Pro">
-                    <div class="p-title">Primebook 2 Pro (2026) | 8GB RAM, 128GB UFS</div>
-                    <div class="p-price">₹28,990.00</div>
-                    <div style="font-size: 10px; color: #555;">M.R.P: ₹39,990.00 (-28%)</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Customers Who Bought This Also Bought (4 Items) -->
-        <div style="margin-top: 30px;">
-            <h2>Customers who bought this item also bought</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Lenovo Chromebook">
-                    <div class="p-title">Lenovo Chromebook, Intel Celeron N4500</div>
-                    <div class="p-price">₹16,990.00</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="ASUS Marshmallow Mouse">
-                    <div class="p-title">ASUS Marshmallow MD100 Wireless Mouse</div>
-                    <div class="p-price">₹1,299.00</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Qubo Smart Cam">
-                    <div class="p-title">Qubo Smart Cam 360° 3MP (2026 Edition)</div>
-                    <div class="p-price">₹2,890.00</div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/150" alt="Nova Trimmer">
-                    <div class="p-title">Nova NHT 1076 Cordless Trimmer for Men</div>
-                    <div class="p-price">₹499.00</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Customer Reviews -->
-        <div style="margin-top: 40px;">
-            <h2>Customer reviews</h2>
-            <div style="color: #ffa41c; font-size: 16px; margin: 5px 0;">★ 4 out of 5 stars (11 global ratings)</div>
+        <!-- कॉलम 2: प्रोडक्ट डिटेल्स -->
+        <section class="column-center">
+            <h1 class="product-title">
+                ASUS Chromebook CM1405 (2026), MediaTek Kompanio 540 Processor, 4GB RAM, 64GB SSD, 14" FHD Display, Chrome OS, Pure Grey
+            </h1>
+            <div class="rating">⭐⭐⭐⭐⭐ 4.0 (11 रेटिंग्स) | Amazon's Choice</div>
             
-            <div class="review-card">
-                <div class="review-author">Abyanshu ★★★★★</div>
-                <div style="font-size: 11px; color: #555;">Reviewed in India on 17 July 2026 | Verified Purchase</div>
-                <p style="margin-top: 5px;"><b>fast and perfect chromebook</b></p>
-                <p style="font-size: 13px; color: #333; margin-top: 5px;">perfect laptop for students and for person who work on cloud , lag free experience on high end task on colab even if two tabs are open . diaplay is hd and top notch and performance is very good .</p>
+            <div class="price-section">
+                <span class="discount-badge">-45%</span>
+                <span class="current-price">₹20,990.00</span>
+                <div class="mrp">एम.आर.पी.: ₹37,990.00</div>
+                <small style="color: #0F1111;">सभी टैक्स शामिल हैं</small>
             </div>
 
-            <div class="review-card">
-                <div class="review-author">Raju ★★★★☆</div>
-                <div style="font-size: 11px; color: #555;">Reviewed in India on 7 September 2026 | Verified Purchase</div>
-                <p style="margin-top: 5px;"><b>performing thik h</b></p>
-                <p style="font-size: 13px; color: #333; margin-top: 5px;">student ke leye best h</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Breadcrumb & Footer -->
-    <div style="padding: 15px; background: #f3f3f3; margin-top: 30px; font-size: 12px;">
-        You are here: Computers & Accessories › Laptops › Traditional Laptops
-    </div>
-
-    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-        TOP OF PAGE
-    </div>
-
-    <div class="footer-nav">
-        <div class="footer-column">
-            <h3>Get to Know Us</h3>
-            <ul>
-                <li>Amazon.in</li>
-                <li>Your Orders</li>
-                <li>Amazon App Download</li>
-                <li>Your Lists</li>
-                <li>Your Recently Viewed Items</li>
-                <li>Recalls and Product Safety Alerts</li>
-                <li>Customer Service</li>
+            <h3>इस आइटम के बारे में:</h3>
+            <ul class="about-list">
+                <li><b>प्रोसेसर:</b> MediaTek Kompanio 540 बेहतरीन परफॉर्मेंस के लिए।</li>
+                <li><b>मेमोरी और स्टोरेज:</b> 4GB LPDDR5X RAM और 64GB SSD स्टोरेज।</li>
+                <li><b>डिस्प्ले:</b> 14.0 इंच का फुल एचडी (FHD) एंटी-ग्लेयर डिस्प्ले।</li>
+                <li><b>ऑपरेटिंग सिस्टम:</b> गूगल का तेज़ और सुरक्षित Chrome OS।</li>
             </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Connect with Us</h3>
-            <ul>
-                <li>Your Amazon.in</li>
-                <li>Amazon Pay</li>
-                <li>Amazon Live</li>
-                <li>Your Account</li>
-                <li>Your Returns</li>
-                <li>Sell</li>
-            </ul>
-        </div>
+        </section>
+
+        <!-- कॉलम 3: बाय बॉक्स (राइट साइड) -->
+        <section class="column-right">
+            <div class="right-price">₹20,990.00</div>
+            <p style="font-size: 14px; margin: 5px 0;">फ्री डिलीवरी: <b>गुरुवार, 17 सितंबर</b></p>
+            <div class="stock-status">स्टॉक में है (In Stock).</div>
+            
+            <button class="btn btn-cart">Add to Cart (कार्ट में जोड़ें)</button>
+            <button class="btn btn-buy">Buy Now (अभी खरीदें)</button>
+            
+            <p style="font-size: 12px; color: #565959; margin-top: 15px;">सुरक्षित ट्रांजैक्शन और 10 दिन का रिप्लेसमेंट।</p>
+        </section>
+
+    </main>
+
+    <!-- 5. स्पेसिफिकेशन्स टेबल -->
+    <div class="specs-container">
+        <h2>तकनीकी विवरण (Technical Details)</h2>
+        <table class="specs-table">
+            <tr>
+                <td class="specs-label">ब्रांड</td>
+                <td>ASUS</td>
+            </tr>
+            <tr>
+                <td class="specs-label">मॉडल का नाम</td>
+                <td>ASUS Chromebook CM1405</td>
+            </tr>
+            <tr>
+                <td class="specs-label">स्क्रीन का आकार</td>
+                <td>14 Inches</td>
+            </tr>
+            <tr>
+                <td class="specs-label">रैम साइज़</td>
+                <td>4 GB</td>
+            </tr>
+            <tr>
+                <td class="specs-label">ऑपरेटिंग सिस्टम</td>
+                <td>Chrome OS</td>
+            </tr>
+        </table>
     </div>
 
-    <div class="footer-bottom">
-        <p style="margin-bottom: 10px;">Already a customer? <a href="#" style="color: #fff;">Sign in</a></p>
-        <p style="margin-bottom: 10px;">Conditions of Use | Privacy Notice | Interest-Based Ads</p>
-        <p>© 1996-2026, Amazon.com, Inc. and its affiliates</p>
-    </div>
+    <!-- 6. फूटर -->
+    <footer class="footer">
+        <p>© 1996-2026, Amazon.com, Inc. या उसके सहयोगी</p>
+        <p style="font-size: 12px; color: #ccc; margin-top: 10px;">यह एक क्लोन वेबपेज प्रोजेक्ट है।</p>
+    </footer>
 
 </body>
 </html>
-    </div>
-
-    <div class="price-section">
-        <span class="discount">-45%</span> <span style="font-size: 24px; font-weight: 500;">₹20,990</span>
-        <div class="mrp">M.R.P.: ₹37,990</div>
-        <div style="font-size: 12px; color: #565959; margin-top: 4px;">Inclusive of all taxes</div>
-    </div>
-
-    <div class="btn-container">
-        <button class="btn btn-cart">Add to cart</button>
-        <button class="btn btn-buy">Buy Now</button>
-    </div>
-
-    <div style="font-size: 13px; line-height: 1.6; border-top: 1px solid #d5d9d9; border-bottom: 1px solid #d5d9d9; padding: 10px 0;">
-        <div><strong>Ships from:</strong> Amazon</div>
-        <div><strong>Sold by:</strong> Clicktech Retail Private Ltd</div>
-    </div>
-</div>
-
-</body>
-</html>
-
