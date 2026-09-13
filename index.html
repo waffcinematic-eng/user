@@ -3,115 +3,683 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASUS Chromebook CM1405 (2026) - Amazon.in</title>
+    <title>ASUS Chromebook Smartchoice Processor - Amazon.in</title>
     <style>
-        /* 1. Global Reset & Styles */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: "Amazon Ember", Arial, sans-serif; background-color: #EAEDED; color: #0F1111; font-size: 14px; line-height: 1.4; }
-        a { color: #007185; text-decoration: none; }
-        a:hover { color: #C7511F; text-decoration: underline; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #ffffff; 
+        }
 
-        /* 2. Top Header */
-        .header { background-color: #131921; padding: 10px 20px; display: flex; align-items: center; color: white; gap: 15px; }
-        .logo { font-size: 22px; font-weight: bold; color: #FF9900; cursor: pointer; }
-        .location { font-size: 12px; display: flex; flex-direction: column; }
-        .location span { font-weight: bold; }
-        .search-container { flex-grow: 1; display: flex; max-width: 800px; }
-        .search-select { padding: 10px; background-color: #f3f3f3; border: none; border-radius: 4px 0 0 4px; font-size: 12px; border-right: 1px solid #ddd; }
-        .search-input { width: 100%; padding: 10px; border: none; font-size: 14px; outline: none; }
-        .search-btn { background-color: #FEBD69; border: none; padding: 0 22px; border-radius: 0 4px 4px 0; cursor: pointer; font-weight: bold; }
-        .search-btn:hover { background-color: #F3A847; }
-        .nav-right { display: flex; gap: 20px; font-size: 12px; }
-        .nav-right div span { font-weight: bold; display: block; font-size: 14px; }
+        /* Header Section */
+        .header { 
+            background-color: #131921; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            padding: 10px 20px; 
+            font-size: 14px; 
+        }
+        .header .logo { 
+            font-size: 22px; 
+            font-weight: bold; 
+            margin-right: 20px; 
+        }
+        .location { 
+            font-size: 12px; 
+            line-height: 14px; 
+            color: #cccccc; 
+        }
+        .location b { 
+            color: white; 
+            font-size: 14px; 
+        }
+        .search-bar { 
+            display: flex; 
+            flex-grow: 1; 
+            margin: 0 20px; 
+        }
+        .search-input { 
+            width: 100%; 
+            padding: 10px; 
+            border-radius: 4px 0 0 4px; 
+            border: none; 
+            outline: none;
+        }
+        .search-btn { 
+            background-color: #febd69; 
+            border: none; 
+            padding: 10px 15px; 
+            border-radius: 0 4px 4px 0; 
+            cursor: pointer; 
+        }
+        .account, .returns { 
+            font-size: 12px; 
+            line-height: 14px; 
+            margin-left: 20px; 
+        }
+        .account b, .returns b { 
+            font-size: 14px; 
+        }
+        .sub-header { 
+            background-color: #232f3e; 
+            color: white; 
+            padding: 8px 20px; 
+            font-size: 14px; 
+            display: flex; 
+            gap: 15px; 
+        }
 
-        /* 3. Sub Navigation Bar */
-        .sub-nav { background-color: #232F3E; color: white; padding: 8px 20px; display: flex; gap: 15px; font-size: 14px; font-weight: 500; }
-        .sub-nav div { cursor: pointer; }
-        .sub-nav div:hover { outline: 1px solid white; }
+        /* Main Product Layout */
+        .product-container { 
+            display: flex; 
+            max-width: 1500px; 
+            margin: 20px auto; 
+            padding: 0 20px; 
+            gap: 30px; 
+        }
 
-        /* 4. Main Product Wrapper (3-Column Layout) */
-        .product-container { max-width: 1500px; margin: 15px auto; background-color: white; padding: 20px; display: flex; gap: 25px; }
+        /* Left Column: Image Gallery */
+        .product-images { 
+            flex: 1; 
+            display: flex; 
+            gap: 15px; 
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+        .thumbnail-list { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+        }
+        .thumbnail { 
+            width: 40px; 
+            height: 40px; 
+            border: 1px solid #a2a6ac; 
+            border-radius: 4px; 
+            cursor: pointer; 
+        }
+        .thumbnail:hover {
+            border-color: #e77600;
+            box-shadow: 0 0 3px #e77600;
+        }
+        .main-image { 
+            width: 100%; 
+            max-width: 500px; 
+            height: 500px; 
+            object-fit: contain; 
+        }
+
+        /* Middle Column: Product Info */
+        .product-details { 
+            flex: 2; 
+        }
+        .product-title { 
+            font-size: 24px; 
+            font-weight: 400; 
+            line-height: 32px; 
+            color: #0f1111; 
+            margin: 0 0 5px 0; 
+        }
+        .store-link { 
+            color: #007185; 
+            font-size: 14px; 
+            text-decoration: none; 
+        }
+        .store-link:hover {
+            text-decoration: underline;
+            color: #c45500;
+        }
+        .rating {
+            font-size: 14px;
+            color: #007185;
+            margin-top: 5px;
+        }
+        .rating-stars {
+            color: #ffa41c;
+            font-size: 16px;
+        }
+
+        /* Price Box */
+        .price-block { 
+            margin: 15px 0; 
+            border-top: 1px solid #e7e7e7;
+            border-bottom: 1px solid #e7e7e7; 
+            padding: 15px 0; 
+        }
+        .discount { 
+            color: #cc0c39; 
+            font-size: 24px; 
+            font-weight: 300;
+            margin-right: 10px;
+        }
+        .price { 
+            font-size: 28px; 
+            font-weight: 500; 
+            color: #0f1111;
+        }
+        .price-symbol {
+            font-size: 14px;
+            position: relative;
+            top: -10px;
+        }
+        .mrp { 
+            color: #565959; 
+            font-size: 14px; 
+            margin-top: 5px;
+        }
+        .mrp span {
+            text-decoration: line-through;
+        }
+
+        /* Specifications */
+        .specs-table { 
+            width: 100%; 
+            margin-top: 15px; 
+            font-size: 14px; 
+            border-collapse: collapse; 
+        }
+        .specs-table td { 
+            padding: 6px 0; 
+            color: #0f1111;
+        }
+        .specs-table td:first-child { 
+            font-weight: 700; 
+            width: 150px; 
+        }
+        .bullets { 
+            margin-top: 15px; 
+            font-size: 14px; 
+            line-height: 20px; 
+            color: #0f1111; 
+            padding-left: 20px;
+        }
+        .bullets li {
+            margin-bottom: 5px;
+        }
+
+        /* Right Column: Buy Box */
+        .buy-box { 
+            width: 250px; 
+            border: 1px solid #d5d9d9; 
+            border-radius: 8px; 
+            padding: 18px; 
+            align-self: flex-start; 
+        }
+        .buy-price { 
+            font-size: 24px; 
+            font-weight: 500; 
+            margin-bottom: 10px; 
+            color: #0f1111;
+        }
+        .delivery-info { 
+            font-size: 14px; 
+            margin-bottom: 15px; 
+            color: #0f1111;
+        }
+        .location-link {
+            color: #007185;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 15px;
+            text-decoration: none;
+        }
+        .in-stock { 
+            color: #007600; 
+            font-size: 18px; 
+            font-weight: 500;
+            margin-bottom: 15px; 
+        }
+        .btn { 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 50px; 
+            border: none; 
+            font-size: 14px; 
+            cursor: pointer; 
+            margin-bottom: 10px; 
+            box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+        }
+        .btn-cart { 
+            background-color: #ffd814; 
+        }
+        .btn-cart:hover { background-color: #f7ca00; }
         
-        /* Column 1: Image Frame */
-        .image-column { flex: 1.2; text-align: center; position: sticky; top: 10px; height: fit-content; }
-        .main-image-placeholder { width: 100%; max-width: 450px; height: 450px; background-color: #F8F8F8; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center; color: #666; font-weight: bold; margin-bottom: 15px; border-radius: 4px; }
+        .btn-buy { 
+            background-color: #ffa41c; 
+        }
+        .btn-buy:hover { background-color: #fa8900; }
         
-        /* Column 2: Product Core Info */
-        .info-column { flex: 2; }
-        .product-title { font-size: 24px; font-weight: 500; line-height: 32px; margin-bottom: 5px; color: #0F1111; }
-        .brand-link { font-size: 14px; margin-bottom: 8px; display: block; }
-        .rating-row { color: #007185; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-size: 14px; }
-        .badge-choice { background-color: #232F3E; color: white; padding: 3px 6px; font-size: 12px; font-weight: bold; width: fit-content; margin-bottom: 15px; }
+        .seller-info {
+            font-size: 12px; 
+            color: #565959; 
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .seller-info span {
+            display: flex;
+            justify-content: space-between;
+        }
+        .seller-info span b {
+            color: #0f1111;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
 
-        /* Pricing Block */
-        .price-box { border-top: 1px solid #E7E7E7; border-bottom: 1px solid #E7E7E7; padding: 15px 0; margin-bottom: 20px; }
-        .discount-pct { color: #CC0C39; font-size: 28px; font-weight: 300; }
-        .price-num { font-size: 28px; font-weight: 500; }
-        .mrp-row { color: #565959; font-size: 14px; margin-top: 5px; }
-        .tax-inc { font-size: 12px; color: #0F1111; display: block; margin-top: 2px; }
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">amazon.in</div>
+        <div class="location">
+            Delivering to Lucknow 226001<br>
+            <b>Update location</b>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="search-input" value="ASUS Chromebook">
+            <button class="search-btn">🔍</button>
+        </div>
+        <div class="account">
+            Hello, sign in<br>
+            <b>Account & Lists</b>
+        </div>
+        <div class="returns">
+            Returns<br>
+            <b>& Orders</b>
+        </div>
+        <div class="account" style="font-size: 16px;">
+            <b>🛒 Cart</b>
+        </div>
+    </div>
 
-        /* Offers Carousel Grid */
-        .offers-section { margin-bottom: 25px; }
-        .offers-title { font-size: 16px; font-weight: bold; margin-bottom: 10px; }
-        .offers-grid { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; }
-        .offer-card { border: 1px solid #D5D9D9; border-radius: 8px; padding: 12px; min-width: 160px; flex: 1; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
-        .offer-card h5 { font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #0F1111; }
-        .offer-card p { font-size: 12px; color: #565959; }
+    <!-- Navigation Bar -->
+    <div class="sub-header">
+        <span>☰ All</span>
+        <span>Fresh</span>
+        <span>Amazon miniTV</span>
+        <span>Sell</span>
+        <span>Best Sellers</span>
+        <span>Mobiles</span>
+        <span>Today's Deals</span>
+        <span>Electronics</span>
+        <span>Customer Service</span>
+    </div>
+    
+    <!-- Main Product Layout -->
+    <div class="product-container">
+        
+        <!-- Image Gallery -->
+        <div class="product-images">
+            <div class="thumbnail-list">
+                <!-- Replace src with actual Amazon image URLs -->
+                <img class="thumbnail" src="https://via.placeholder.com/40" alt="Thumb 1">
+                <img class="thumbnail" src="https://via.placeholder.com/40" alt="Thumb 2">
+                <img class="thumbnail" src="https://via.placeholder.com/40" alt="Thumb 3">
+                <img class="thumbnail" src="https://via.placeholder.com/40" alt="Thumb 4">
+            </div>
+            <img class="main-image" src="https://via.placeholder.com/500" alt="ASUS Chromebook">
+        </div>
+        
+        <!-- Product Details -->
+        <div class="product-details">
+            <h1 class="product-title">ASUS Chromebook Smartchoice Processor CM1405CM4A-S60034, 14" (35.56 cms) FHD, ChromeOS, Thin and Light Laptop (4GB RAM/64GB eMMC/Wi-Fi 6/Silver/1.45 kg)</h1>
+            <a href="#" class="store-link">Visit the ASUS Store</a>
+            <div class="rating">
+                <span class="rating-stars">★★★★☆</span> 4.1 | 845 ratings
+            </div>
+            
+            <div class="price-block">
+                <span class="discount">-26%</span>
+                <span class="price"><span class="price-symbol">₹</span>16,990</span><br>
+                <div class="mrp">M.R.P.: <span>₹22,990</span></div>
+                <div style="font-size: 14px; margin-top: 5px; color: #0f1111;">Inclusive of all taxes</div>
+                <div style="font-size: 14px; margin-top: 5px; color: #0f1111;"><b>EMI</b> starts at ₹824. No Cost EMI available</div>
+            </div>
+            
+            <table class="specs-table">
+                <tr><td>Brand</td><td>ASUS</td></tr>
+                <tr><td>Model Name</td><td>Chromebook</td></tr>
+                <tr><td>Screen Size</td><td>14 Inches</td></tr>
+                <tr><td>Colour</td><td>Silver</td></tr>
+                <tr><td>Hard Disk Size</td><td>64 GB</td></tr>
+                <tr><td>CPU Model</td><td>Celeron N4500</td></tr>
+                <tr><td>RAM Memory Installed Size</td><td>4 GB</td></tr>
+                <tr><td>Operating System</td><td>Chrome OS</td></tr>
+            </table>
+            
+            <hr style="border-top: 1px solid #e7e7e7; margin: 20px 0;">
+            
+            <b style="font-size: 16px;">About this item</b>
+            <ul class="bullets">
+                <li>Processor: MediaTek Kompanio 520(8186) 2.05 GHz (1M Cache, up to 2.05 GHz, 8 cores)</li>
+                <li>Memory: 4GB LPDDR4X on board | Storage: 64G eMMC</li>
+                <li>Display: 14.0-inch FHD (1920 x 1080) 16:9 250nits Anti-glare display</li>
+                <li>Operating System: Chrome OS</li>
+                <li>Weight: 1.45 kg | Thin and Light design</li>
+            </ul>
+        </div>
+        
+        <!-- Buy Box -->
+        <div class="buy-box">
+            <div class="buy-price"><span class="price-symbol">₹</span>16,990</div>
+            <div class="delivery-info">FREE delivery <b>Tuesday, 16 September</b>. Order within 4 hrs 30 mins. Details</div>
+            <a href="#" class="location-link">◎ Deliver to Lucknow 226001</a>
+            
+            <div class="in-stock">In stock</div>
+            
+            <div style="margin-bottom: 15px; font-size: 14px;">
+                Quantity: <select style="border-radius: 8px; padding: 3px; border: 1px solid #d5d9d9;"><option>1</option><option>2</option></select>
+            </div>
 
-        /* Service Icons Row */
-        .services-row { display: flex; gap: 15px; margin: 20px 0; border-bottom: 1px solid #E7E7E7; padding-bottom: 20px; overflow-x: auto; }
-        .service-item { flex: 1; text-align: center; min-width: 85px; }
-        .service-icon-box { width: 40px; height: 40px; background-color: #F8F8F8; border-radius: 50%; margin: 0 auto 8px auto; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #555; }
-        .service-item p { font-size: 12px; color: #007185; font-weight: 500; }
+            <button class="btn btn-cart">Add to Cart</button>
+            <button class="btn btn-buy">Buy Now</button>
+            
+            <div style="font-size: 14px; color: #007185; margin: 15px 0; display: flex; align-items: center; gap: 5px;">
+                🔒 Secure transaction
+            </div>
+            
+            <div class="seller-info">
+                <span>Ships from <b>Amazon</b></span>
+                <span>Sold by <b>Appario Retail Private Ltd</b></span>
+            </div>
+        </div>
+        
+    </div>
 
-        /* Variants Configurations */
-        .variant-section { margin-bottom: 20px; }
-        .variant-title { font-size: 14px; font-weight: bold; margin-bottom: 8px; }
-        .variant-buttons { display: flex; gap: 10px; }
-        .var-btn { border: 1px solid #888; padding: 8px 16px; background: white; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 500; }
-        .var-btn.active { border: 2px solid #E47911; background-color: #FDEDDE; font-weight: bold; }
+</body>
+</html>
+    <!-- CSS for Bottom Section -->
+    <style>
+        .bottom-section { 
+            max-width: 1500px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+        .section-title { 
+            font-size: 24px; 
+            font-weight: 700; 
+            color: #0f1111; 
+            margin-bottom: 20px; 
+        }
+        
+        /* Product Description */
+        .product-desc-box {
+            border-top: 1px solid #e7e7e7;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        .product-desc-text {
+            font-size: 14px;
+            line-height: 22px;
+            color: #333;
+            max-width: 800px;
+        }
 
-        /* Bullet Bulletins */
-        .bullets-section h3 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
-        .bullet-list { padding-left: 18px; font-size: 14px; line-height: 1.5; color: #0F1111; }
-        .bullet-list li { margin-bottom: 6px; }
+        /* Reviews Section */
+        .reviews-container { 
+            display: flex; 
+            gap: 50px; 
+            margin-top: 40px;
+            border-top: 1px solid #e7e7e7;
+            padding-top: 20px;
+        }
+        .review-summary { 
+            flex: 1; 
+            max-width: 300px; 
+        }
+        .review-list { 
+            flex: 2; 
+        }
+        
+        .global-rating {
+            font-size: 18px;
+            color: #0f1111;
+            margin-bottom: 10px;
+        }
+        .global-rating span {
+            color: #ffa41c;
+            font-size: 24px;
+        }
+        
+        .progress-bar-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            margin-bottom: 12px; 
+            font-size: 14px; 
+            color: #007185;
+            cursor: pointer;
+        }
+        .progress-bar-container:hover {
+            color: #c45500;
+        }
+        .progress-bar { 
+            width: 200px; 
+            height: 18px; 
+            background-color: #f0f2f2; 
+            border-radius: 4px; 
+            border: 1px solid #a2a6ac; 
+            overflow: hidden; 
+        }
+        .progress-fill { 
+            height: 100%; 
+            background-color: #ffa41c; 
+        }
 
-        /* Column 3: Sticky Checkout Buy Box */
-        .buy-column { flex: 0.8; border: 1px solid #D5D9D9; border-radius: 8px; padding: 18px; max-width: 290px; height: fit-content; background-color: #FFFFFF; }
-        .buy-price { font-size: 24px; font-weight: 500; margin-bottom: 8px; }
-        .delivery-eta { font-size: 13px; margin-bottom: 12px; }
-        .stock-status { color: #B12704; font-size: 18px; font-weight: 500; margin-bottom: 15px; }
-        .qty-select { width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #D5D9D9; background-color: #F0F2F2; font-size: 13px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(15,17,17,.15); }
-        .action-btn { width: 100%; padding: 10px; border-radius: 20px; border: 1px solid; font-size: 14px; cursor: pointer; margin-bottom: 10px; font-weight: 500; text-align: center; }
-        .btn-add-cart { background-color: #FFD814; border-color: #FCD200; color: #0F1111; }
-        .btn-add-cart:hover { background-color: #F7CA00; }
-        .btn-buy-now { background-color: #FFA41C; border-color: #FF8F00; color: #0F1111; }
-        .btn-buy-now:hover { background-color: #FA8900; }
-        .secure-note { font-size: 12px; color: #565959; margin-top: 12px; text-align: center; }
+        /* Individual Review */
+        .review-item { 
+            margin-bottom: 30px; 
+        }
+        .reviewer { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            font-size: 14px; 
+            margin-bottom: 5px; 
+            color: #0f1111;
+        }
+        .avatar { 
+            width: 34px; 
+            height: 34px; 
+            background-color: #e7e7e7; 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            color: #888;
+        }
+        .review-title { 
+            font-weight: 700; 
+            font-size: 14px; 
+            color: #0f1111; 
+        }
+        .review-title span {
+            color: #ffa41c;
+            margin-right: 5px;
+        }
+        .review-date { 
+            color: #565959; 
+            font-size: 14px; 
+            margin-bottom: 10px; 
+        }
+        .review-verified {
+            color: #c45500;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .review-text { 
+            font-size: 14px; 
+            line-height: 20px; 
+            color: #0f1111; 
+        }
 
-        /* 5. Suggestion Carousel Section */
-        .suggestions-container { max-width: 1500px; margin: 20px auto; background-color: white; padding: 20px; }
-        .suggestions-title { font-size: 20px; font-weight: bold; color: #CC6600; margin-bottom: 15px; border-bottom: 1px solid #E7E7E7; padding-bottom: 8px; }
-        .suggestions-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; overflow-x: auto; }
-        .suggest-card { border: 1px solid #E7E7E7; padding: 12px; border-radius: 4px; background: #fff; text-align: left; display: flex; flex-direction: column; justify-content: space-between; }
-        .suggest-img-box { width: 100%; height: 140px; background-color: #F7F7F7; border: 1px dashed #ddd; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #777; margin-bottom: 10px; border-radius: 4px; }
-        .suggest-title { font-size: 13px; font-weight: 500; height: 54px; overflow: hidden; margin-bottom: 5px; color: #007185; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
-        .suggest-rating { color: #777; font-size: 12px; margin-bottom: 5px; }
-        .suggest-price { font-size: 15px; font-weight: bold; color: #B12704; }
-        .suggest-mrp { font-size: 12px; color: #565959; text-decoration: line-through; }
+        /* Footer */
+        .footer-top { 
+            background-color: #37475a; 
+            color: white; 
+            text-align: center; 
+            padding: 15px; 
+            font-size: 13px; 
+            cursor: pointer; 
+            margin-top: 40px; 
+        }
+        .footer-top:hover { 
+            background-color: #485769; 
+        }
+        .footer-main { 
+            background-color: #232f3e; 
+            color: #dddddd; 
+            padding: 40px 20px; 
+            display: flex; 
+            justify-content: center;
+            gap: 80px;
+            font-size: 14px; 
+            line-height: 2; 
+        }
+        .footer-col h3 { 
+            color: white; 
+            font-size: 16px; 
+            margin-bottom: 10px; 
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
 
-        /* 6. Technical Specifications Table */
-        .specs-wrapper { max-width: 1500px; margin: 20px auto; background-color: white; padding: 20px; }
-        .specs-header { font-size: 20px; font-weight: bold; margin-bottom: 15px; }
-        .specs-table { width: 100%; max-width: 700px; border-collapse: collapse; }
-        .specs-table tr:nth-child(even) { background-color: #F7F7F7; }
-        .specs-table td { padding: 12px; border: 1px solid #E7E7E7; font-size: 14px; }
-        .spec-lbl { font-weight: bold; width: 35%; color: #444; }
+    <!-- Bottom Section HTML -->
+    <div class="bottom-section">
+        
+        <!-- Product Description -->
+        <div class="product-desc-box">
+            <h2 class="section-title">Product Description</h2>
+            <div class="product-desc-text">
+                <b>Do more with ASUS Chromebook</b><br>
+                ASUS Chromebook is the simple way to boost your productivity and have more fun on the move — all day and every day. This ultraportable and lightweight 14-inch Chromebook is powered by a MediaTek Kompanio 520 processor, and gives you the freedom of up to 15 hours of battery life. It also features a slim-bezel design, giving you more screen in a smaller footprint for easier multitasking and more immersive entertainment.
+            </div>
+        </div>
 
-        /* 7. Site Footer */
-        .footer-back { background-color: #37475A; color: white; text-align: center; padding: 15px 0; font-size: 12px; cursor: pointer; font-weight: 500; }
-        .footer-back:hover { background-color: #485769; }
-        .footer-links { background-color: #232F3E; color: white; padding: 40px 20px; display: flex; justify-content: center; gap: 80px; font-size: 12px; border-bottom: 1px solid #3a4553; }
+        <!-- Customer Reviews -->
+        <div class="reviews-container">
+            <!-- Review Summary (Left) -->
+            <div class="review-summary">
+                <h2 class="section-title">Customer reviews</h2>
+                <div class="global-rating">
+                    <span>★★★★☆</span> 4.1 out of 5
+                </div>
+                <div style="color: #565959; font-size: 14px; margin-bottom: 20px;">845 global ratings</div>
+                
+                <div class="progress-bar-container">
+                    <div>5 star</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 55%;"></div></div>
+                    <div>55%</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div>4 star</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 20%;"></div></div>
+                    <div>20%</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div>3 star</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
+                    <div>10%</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div>2 star</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 5%;"></div></div>
+                    <div>5%</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div>1 star</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
+                    <div>10%</div>
+                </div>
+            </div>
+
+            <!-- Review List (Right) -->
+            <div class="review-list">
+                <h3 style="font-size: 18px; margin-bottom: 20px;">Top reviews from India</h3>
+                
+                <div class="review-item">
+                    <div class="reviewer">
+                        <div class="avatar">👤</div>
+                        <span>Rahul Kumar</span>
+                    </div>
+                    <div class="review-title"><span>★★★★★</span> Great laptop for daily basic tasks</div>
+                    <div class="review-date">Reviewed in India on 12 August 2026</div>
+                    <div class="review-verified">Verified Purchase</div>
+                    <div class="review-text">
+                        The battery life is amazing. I easily get around 12-13 hours on a single charge. ChromeOS is very fast and boots up in seconds. Perfect for web browsing, YouTube, and editing Google Docs. The screen quality is decent for the price. Keyboard is comfortable to type on.
+                    </div>
+                </div>
+
+                <div class="review-item">
+                    <div class="reviewer">
+                        <div class="avatar">👤</div>
+                        <span>Sneha Singh</span>
+                    </div>
+                    <div class="review-title"><span>★★★★☆</span> Good value for money, but limited apps</div>
+                    <div class="review-date">Reviewed in India on 25 July 2026</div>
+                    <div class="review-verified">Verified Purchase</div>
+                    <div class="review-text">
+                        Build quality is solid and it feels very premium despite being plastic. Lightweight and easy to carry around. Keep in mind this is a Chromebook, so you cannot install Windows applications (.exe files). Android apps from Play Store work fine though. Good for students.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-top">
+        Back to top
+    </div>
+    <div class="footer-main">
+        <div class="footer-col">
+            <h3>Get to Know Us</h3>
+            <ul>
+                <li>About Us</li>
+                <li>Careers</li>
+                <li>Press Releases</li>
+                <li>Amazon Science</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Connect with Us</h3>
+            <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Make Money with Us</h3>
+            <ul>
+                <li>Sell on Amazon</li>
+                <li>Sell under Amazon Accelerator</li>
+                <li>Protect and Build Your Brand</li>
+                <li>Amazon Global Selling</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Let Us Help You</h3>
+            <ul>
+                <li>COVID-19 and Amazon</li>
+                <li>Your Account</li>
+                <li>Returns Centre</li>
+                <li>Help</li>
+            </ul>
+        </div>
+    </div>
         .footer-col h4 { font-size: 14px; margin-bottom: 12px; font-weight: bold; }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 8px; color: #DDD; cursor: pointer; }
