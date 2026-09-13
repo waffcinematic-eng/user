@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASUS Chromebook CM1405 Product Page</title>
+    <title>ASUS Chromebook CM1405 - Amazon.in</title>
     <style>
         * {
             box-sizing: border-box;
@@ -16,55 +16,68 @@
             color: #0f1111;
         }
         .container {
-            max-width: 600px;
+            max-width: 480px;
             margin: 0 auto;
             background-color: #ffffff;
-            padding: 12px;
+            padding: 10px;
+        }
+        .delivery-header {
+            background-color: #232f3e;
+            color: white;
+            padding: 8px 12px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .store-link {
             font-size: 14px;
             color: #007185;
             text-decoration: none;
             display: inline-block;
-            margin-bottom: 6px;
+            margin: 8px 0 4px 0;
         }
         .product-title {
             font-size: 15px;
             color: #0f1111;
             line-height: 1.4;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-weight: 400;
         }
         .ratings-row {
-            font-size: 14px;
+            font-size: 13px;
             color: #007185;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         .stars {
             color: #ffa41c;
+            letter-spacing: 1px;
         }
         .bought-badge {
-            font-size: 13px;
+            font-size: 12px;
             color: #0f1111;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
         .smart-choice-box {
             background: #232f3e;
             color: #fff;
-            padding: 4px 10px;
+            padding: 3px 8px;
             font-weight: bold;
-            font-size: 13px;
+            font-size: 11px;
             display: inline-block;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .variant-section {
             margin-bottom: 12px;
-            font-size: 14px;
+            font-size: 13px;
         }
         .variant-label {
             color: #565959;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .variant-value {
             font-weight: bold;
@@ -73,45 +86,284 @@
         .buttons-row {
             display: flex;
             gap: 8px;
-            margin-bottom: 12px;
+            margin-top: 5px;
         }
         .variant-btn {
             border: 1px solid #007185;
             background: #fff;
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 13px;
             cursor: pointer;
             color: #0f1111;
+            font-weight: bold;
         }
         .variant-btn.active {
             border: 2px solid #007185;
             box-shadow: 0 0 0 1px #007185;
+            background-color: #f0f8f8;
+        }
+        .ram-card-container {
+            display: flex;
+            gap: 8px;
+            margin-top: 5px;
         }
         .ram-card {
             border: 1px solid #d5d9d9;
             border-radius: 8px;
-            padding: 10px;
-            margin-bottom: 12px;
-            display: inline-block;
+            padding: 8px;
             width: 48%;
+            text-align: left;
+            font-size: 12px;
+        }
+        .ram-card.active {
+            border: 2px solid #007185;
+            box-shadow: 0 0 0 1px #007185;
         }
         .price-box {
-            margin: 15px 0;
+            margin: 12px 0;
+            border-top: 1px solid #d5d9d9;
+            border-bottom: 1px solid #d5d9d9;
+            padding: 10px 0;
+        }
+        .discount-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
         }
         .discount-badge {
             background-color: #cc0c39;
             color: white;
-            padding: 3px 6px;
-            font-size: 16px;
+            padding: 2px 5px;
+            font-size: 15px;
             font-weight: bold;
-            display: inline-block;
         }
         .current-price {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 400;
-            margin-left: 8px;
+            color: #0f1111;
         }
+        .mrp-text {
+            font-size: 12px;
+            color: #565959;
+            margin-top: 2px;
+        }
+        .mrp-strike {
+            text-decoration: line-through;
+        }
+        .emi-info {
+            font-size: 12px;
+            color: #0f1111;
+            margin-top: 4px;
+        }
+        .emi-link {
+            color: #007185;
+            text-decoration: none;
+        }
+        .offer-card {
+            border: 1px solid #d5d9d9;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #0f1111;
+        }
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 12px 0;
+        }
+        .btn {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-cart {
+            background-color: #ffd814;
+            border: 1px solid #fcd200;
+        }
+        .btn-buy {
+            background-color: #ffa41c;
+            border: 1px solid #ff8f00;
+        }
+        .delivery-info {
+            font-size: 12px;
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+        .delivery-date {
+            font-weight: bold;
+        }
+        .location-link {
+            color: #007185;
+            text-decoration: none;
+        }
+        .seller-info {
+            font-size: 12px;
+            margin: 10px 0;
+            line-height: 1.4;
+            border-bottom: 1px solid #d5d9d9;
+            padding-bottom: 10px;
+        }
+        .confidence-box {
+            border-bottom: 1px solid #d5d9d9;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+        .confidence-title {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .confidence-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            font-size: 12px;
+            color: #565959;
+        }
+        .section-block {
+            margin: 12px 0;
+            border-bottom: 1px solid #d5d9d9;
+            padding-bottom: 12px;
+        }
+        .section-heading {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .highlights-list {
+            padding-left: 16px;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #0f1111;
+        }
+        .highlights-list li {
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="#" class="store-link">Visit the store, ASUS</a>
+        <div class="product-title">ASUS Chromebook CM1405 (2026), Smartchoice, MediaTek Kompanio 540 Processor, 4GB RAM, 64GB SSD, FHD, 14"(35.5 cm), 60Hz, Chrome OS, Pure Grey, 1.37 Kg, CM1405CM4A-S60034, Thin & Light Laptop</div>
+        
+        <div class="ratings-row">
+            <span class="stars">★★★★☆</span> <span>4.0</span> <span style="color: #007185;">(11)</span>
+        </div>
+
+        <div class="bought-badge">100+ bought in past month</div>
+        <div><span class="smart-choice-box">Amazon's Choice</span></div>
+
+        <div class="variant-section">
+            <div class="variant-label">Colour: <span class="variant-value">Pure Grey</span></div>
+        </div>
+
+        <div class="variant-section">
+            <div class="variant-label">SSD Capacity: <span class="variant-value">64 GB</span></div>
+            <div class="buttons-row">
+                <button class="variant-btn active">64 GB</button>
+                <button class="variant-btn">128 GB</button>
+            </div>
+        </div>
+
+        <div class="variant-section">
+            <div class="variant-label">RAM Memory Size: <span class="variant-value">4 GB</span></div>
+            <div class="ram-card-container">
+                <div class="ram-card active">
+                    <strong>4 GB</strong><br>
+                    <span style="color: #B12704; font-weight: bold;">₹20,990.00</span><br>
+                    <span style="font-size: 10px; text-decoration: line-through; color: #565959;">₹37,990.00</span><br>
+                    <span style="color: #008500; font-size: 11px; font-weight: bold;">In stock</span>
+                </div>
+                <div class="ram-card">
+                    <strong>8.0 GB</strong><br><br>
+                    <span style="font-size: 11px; color: #007185;">See available options</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="price-box">
+            <div class="discount-price-row">
+                <span class="discount-badge">-45%</span>
+                <span class="current-price">₹20,990</span>
+            </div>
+            <div class="mrp-text">M.R.P.: <span class="mrp-strike">₹37,990.00</span></div>
+            <div class="emi-info">EMI from ₹738. No Cost EMI available. <a href="#" class="emi-link">EMI options</a></div>
+            <div style="font-size: 11px; color: #565959; margin-top: 2px;">Inclusive of all taxes</div>
+        </div>
+
+        <div class="offer-card">
+            <span>See all offers & discounts</span>
+            <span style="color: #565959; font-weight: bold;">›</span>
+        </div>
+        <div class="offer-card">
+            <div>Exchange Your Old Product <br><span style="font-size: 10px; color: #565959;">Save upto ₹7,200</span></div>
+            <span style="color: #565959; font-weight: bold;">›</span>
+        </div>
+        <div class="offer-card">
+            <div>Add Accessories <br><span style="font-size: 10px; color: #565959;">Save extra when bought together</span></div>
+            <span style="color: #565959; font-weight: bold;">›</span>
+        </div>
+        <div class="offer-card">
+            <div>Amazon protect <br><span style="font-size: 10px; color: #565959;">Cashless repairs, claims via Amazon</span></div>
+            <span style="color: #565959; font-weight: bold;">›</span>
+        </div>
+
+        <div class="cta-container">
+            <button class="btn btn-cart">Add to cart</button>
+            <button class="btn btn-buy">Buy Now</button>
+        </div>
+
+        <div class="delivery-info">
+            FREE delivery <span class="delivery-date">Saturday, 19 September</span>. <a href="#" class="location-link">Details</a><br>
+            <span style="color: #007185;">📍 Delivering to Bānda 210001 - Update location</span>
+        </div>
+
+        <div class="seller-info">
+            Ships from <strong>Amazon</strong><br>
+            Sold by <strong>Clicktech Retail Private Ltd</strong><br>
+            Gift options <strong>Available at checkout</strong>
+        </div>
+
+        <div class="confidence-box">
+            <div class="confidence-title">Shop with confidence</div>
+            <div class="confidence-grid">
+                <div>✔ 10 days Service Centre Replacement</div>
+                <div>✔ Free Delivery</div>
+                <div>✔ 1 Year Warranty</div>
+                <div>✔ Pay on Delivery</div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <div class="section-heading">Top highlights</div>
+            <ul class="highlights-list">
+                <li><strong>Brand:</strong> ASUS</li>
+                <li><strong>Model Name:</strong> ASUS Chromebook</li>
+                <li><strong>Screen Size:</strong> 14 Inches</li>
+                <li><strong>Colour:</strong> Pure Grey</li>
+                <li><strong>Hard Disk Size:</strong> 64 GB</li>
+                <li><strong>CPU Model:</strong> MediaTek Kompanio 500</li>
+                <li><strong>Processor, Memory & Storage:</strong> MediaTek Kompanio 540 2.0 GHz(1M Cache, up to 2.6GHz, 8 cores) | Memory : LPDDR5X 4GB RAM | Storage : 64GB eMMC SSD</li>
+                <li><strong>Operating System & Software:</strong> Chrome OS</li>
+                <li><strong>Display & Graphics:</strong> 14.0-inch, FHD (1920 x 1080) 16:9, 300nits Brightness, Anti-glare display, 60Hz Refresh rate</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
         .mrp-text {
             font-size: 13px;
             color: #565959;
