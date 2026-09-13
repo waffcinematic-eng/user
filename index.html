@@ -2,103 +2,128 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASUS Chromebook - Amazon.in</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ASUS Chromebook CM1405 - Amazon.in</title>
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #f2f2f2;
+            background-color: #eaeded;
             display: flex;
             justify-content: center;
         }
 
-        .mobile-container {
+        .amazon-mobile-wrapper {
             width: 100%;
-            max-width: 480px; /* Forces mobile layout even on desktop */
+            max-width: 414px;
             background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
             position: relative;
+            overflow-x: hidden;
         }
 
-        /* --- Header Styles --- */
-        .header-top {
+        /* Top Navigation Header */
+        .nav-header {
             background-color: #232f3e;
             color: #ffffff;
-            padding: 10px 15px;
+            padding: 10px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
-        .header-left {
+
+        .nav-left {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .hamburger {
+        .hamburger-icon {
             font-size: 24px;
-            cursor: pointer;
+            font-weight: 300;
         }
 
-        .logo {
-            font-size: 20px;
+        .brand-logo {
+            font-size: 19px;
             font-weight: 700;
             letter-spacing: -0.5px;
             margin-top: 2px;
         }
 
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 14px;
-        }
-
-        .cart-icon {
-            position: relative;
-            font-size: 20px;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -8px;
-            color: #f08804;
-            font-weight: bold;
+        .brand-logo span {
+            font-weight: 400;
             font-size: 13px;
         }
 
-        .search-bar-container {
-            background-color: #232f3e;
-            padding: 0 15px 10px 15px;
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 14px;
         }
 
-        .search-bar {
+        .signin-text {
+            font-weight: 500;
+        }
+
+        .cart-wrapper {
+            position: relative;
             display: flex;
-            height: 40px;
+            align-items: center;
+        }
+
+        .cart-symbol {
+            font-size: 22px;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -4px;
+            right: -6px;
+            color: #f08804;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* Search Bar Area */
+        .search-section {
+            background-color: #232f3e;
+            padding: 0 12px 10px 12px;
+        }
+
+        .search-bar-box {
+            display: flex;
+            background: #ffffff;
             border-radius: 4px;
             overflow: hidden;
+            height: 40px;
         }
 
-        .search-bar input {
+        .search-input-field {
             flex-grow: 1;
             border: none;
-            padding: 10px 15px;
+            padding: 0 12px;
             font-size: 15px;
             outline: none;
         }
 
-        .search-bar button {
+        .camera-icon-box {
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .search-submit-btn {
             background-color: #febd69;
             border: none;
-            width: 50px;
+            width: 44px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -106,12 +131,547 @@
             cursor: pointer;
         }
 
-        .location-bar {
+        /* Location Bar */
+        .delivery-bar {
             background-color: #37475a;
             color: #ffffff;
-            padding: 10px 15px;
+            padding: 9px 12px;
             font-size: 13px;
             display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Product Main Info Section */
+        .product-main-details {
+            padding: 12px 12px 0 12px;
+        }
+
+        .store-rating-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+
+        .store-info .brand-title-mini {
+            font-weight: 700;
+            font-size: 13px;
+            color: #0f1111;
+        }
+
+        .store-info .visit-store-link {
+            color: #007185;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .ratings-box {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 13px;
+            color: #007185;
+        }
+
+        .star-rating {
+            color: #ffa41c;
+            font-size: 14px;
+            letter-spacing: -1px;
+        }
+
+        .product-full-title {
+            font-size: 14px;
+            line-height: 20px;
+            color: #0f1111;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .amazon-choice-tag {
+            display: inline-block;
+            background-color: #232f3e;
+            color: #ffffff;
+            font-size: 12px;
+            padding: 3px 7px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .amazon-choice-tag::after {
+            content: '';
+            position: absolute;
+            right: -7px;
+            top: 0;
+            border-top: 11px solid #232f3e;
+            border-bottom: 11px solid #232f3e;
+            border-right: 7px solid transparent;
+        }
+
+        .amazon-choice-tag span {
+            color: #f69931;
+        }
+
+        .sales-velocity {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f1111;
+            margin-bottom: 10px;
+        }
+
+        /* Image Carousel Area */
+        .image-carousel-section {
+            position: relative;
+            text-align: center;
+            padding: 5px 0 10px 0;
+        }
+
+        .main-product-img {
+            width: 82%;
+            max-width: 330px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .discount-bubble {
+            position: absolute;
+            top: 0;
+            left: 12px;
+            background-color: #cc0c39;
+            color: #ffffff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .discount-bubble span {
+            font-size: 9px;
+            font-weight: 400;
+        }
+
+        .smart-choice-emblem {
+            position: absolute;
+            top: 0;
+            right: 12px;
+            background: #ffffff;
+            border: 1px solid #d5d9d9;
+            padding: 2px 7px;
+            border-radius: 3px;
+            font-weight: 900;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .sc-smart { color: #002244; }
+        .sc-choice { color: #ff9900; }
+        .sc-check { color: #00a8e1; font-size: 13px; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .dot-indicator {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #cccccc;
+        }
+
+        .dot-indicator.active {
+            background-color: #0f1111;
+        }
+
+        .floating-action-icons {
+            position: absolute;
+            bottom: 5px;
+            right: 12px;
+            display: flex;
+            gap: 15px;
+            font-size: 20px;
+            color: #565959;
+        }
+
+        .section-separator {
+            height: 4px;
+            background-color: #eaeded;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        /* Variant Selections Area */
+        .variant-options-wrapper {
+            padding: 0 12px 15px 12px;
+        }
+
+        .option-group-title {
+            font-size: 13px;
+            color: #565959;
+            margin-bottom: 8px;
+        }
+
+        .option-group-title b {
+            color: #0f1111;
+        }
+
+        .ssd-buttons-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .ssd-chip {
+            border: 1px solid #d5d9d9;
+            background-color: #ffffff;
+            padding: 7px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #0f1111;
+            cursor: pointer;
+        }
+
+        .ssd-chip.selected {
+            border: 1px solid #007185;
+            background-color: #f0f8ff;
+            box-shadow: 0 0 0 1px #007185;
+        }
+
+        .ram-cards-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ram-option-card {
+            border: 1px solid #d5d9d9;
+            border-radius: 4px;
+            padding: 8px;
+            flex: 1;
+        }
+
+        .ram-option-card.selected {
+            border: 1px solid #007185;
+            background-color: #f0f8ff;
+            box-shadow: 0 0 0 1px #007185;
+        }
+
+        .ram-card-title {
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 2px;
+            color: #0f1111;
+        }
+
+        .ram-card-price {
+            font-size: 14px;
+            color: #0f1111;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .ram-card-price sup {
+            font-size: 9px;
+            margin-top: 2px;
+        }
+
+        .ram-card-mrp {
+            font-size: 11px;
+            color: #565959;
+            text-decoration: line-through;
+            margin: 2px 0;
+            display: block;
+        }
+
+        .ram-card-subtext {
+            font-size: 12px;
+            color: #0f1111;
+            line-height: 1.2;
+        }
+
+        /* Pricing & Action Section */
+        .pricing-action-section {
+            padding: 0 12px 15px 12px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .discount-percent {
+            font-size: 28px;
+            font-weight: 300;
+            color: #cc0c39;
+            line-height: 1;
+        }
+
+        .current-price-display {
+            font-size: 28px;
+            font-weight: 500;
+            color: #0f1111;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .current-price-display sup {
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .mrp-row {
+            font-size: 13px;
+            color: #565959;
+            margin-bottom: 12px;
+        }
+
+        .mrp-row span {
+            text-decoration: line-through;
+        }
+
+        .inclusive-taxes {
+            font-size: 13px;
+            color: #0f1111;
+            margin-bottom: 12px;
+        }
+
+        /* Action Buttons */
+        .action-buttons-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ffd814;
+            border: 1px solid #fcd200;
+            border-radius: 20px;
+            padding: 11px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0f1111;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(213,217,217,.5);
+        }
+
+        .buy-now-btn {
+            background-color: #ffa41c;
+            border: 1px solid #ff8f00;
+            border-radius: 20px;
+            padding: 11px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0f1111;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(213,217,217,.5);
+        }
+
+        .secure-transaction {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #007185;
+            margin-bottom: 15px;
+        }
+
+        /* Specs Grid List */
+        .specs-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #e7e7e7;
+            border-bottom: 1px solid #e7e7e7;
+            margin-bottom: 15px;
+        }
+
+        .spec-item-box {
+            font-size: 12px;
+            color: #0f1111;
+        }
+
+        .spec-item-box b {
+            display: block;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="amazon-mobile-wrapper">
+    
+    <!-- Top Header -->
+    <header class="nav-header">
+        <div class="nav-left">
+            <div class="hamburger-icon">☰</div>
+            <div class="brand-logo">amazon<span>.in</span></div>
+        </div>
+        <div class="nav-right">
+            <span class="signin-text">Sign in ›</span>
+            <span>👤</span>
+            <div class="cart-wrapper">
+                <span class="cart-symbol">🛒</span>
+                <span class="cart-badge">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-section">
+        <div class="search-bar-box">
+            <input type="text" class="search-input-field" placeholder="Search Amazon.in">
+            <div class="camera-icon-box">📷</div>
+            <button class="search-submit-btn">🔍</button>
+        </div>
+    </div>
+
+    <!-- Location Bar -->
+    <div class="delivery-bar">
+        <span style="font-size: 15px;">◎</span> Delivering to Bānda 210001 - Update location ⌄
+    </div>
+
+    <!-- Product Meta Info -->
+    <div class="product-main-details">
+        <div class="store-rating-row">
+            <div class="store-info">
+                <div class="brand-title-mini">ASUS</div>
+                <a href="#" class="visit-store-link">Visit the store</a>
+            </div>
+            <div class="ratings-box">
+                <span>4.0</span>
+                <span class="star-rating">★★★★☆</span>
+                <span>(11)</span>
+            </div>
+        </div>
+
+        <h1 class="product-full-title">
+            ASUS Chromebook CM1405 (2026), Smartchoice, MediaTek Kompanio 540 Processor, 4GB RAM, 64GB SSD, FHD, 14"(35.5 cm), 60Hz, Chrome OS, Pure Grey, 1.37 Kg, CM1405CM4A-S60034, Thin & Light Laptop
+        </h1>
+
+        <div class="amazon-choice-tag">Amazon's <span>Choice</span></div>
+        <div class="sales-velocity">100+ bought in past month</div>
+    </div>
+
+    <!-- Product Image Carousel Area -->
+    <div class="image-carousel-section">
+        <div class="discount-bubble">
+            45%<br><span>off</span>
+        </div>
+        
+        <div class="smart-choice-emblem">
+            <span class="sc-smart">SMART</span>
+            <span class="sc-choice">CHOICE</span>
+            <span class="sc-check">✓</span>
+        </div>
+
+        <img src="https://m.media-amazon.com/images/I/71Y0v+19tPL._SX679_.jpg" alt="ASUS Chromebook" class="main-product-img">
+
+        <div class="carousel-dots">
+            <span class="dot-indicator active"></span>
+            <span class="dot-indicator"></span>
+            <span class="dot-indicator"></span>
+            <span class="dot-indicator"></span>
+            <span class="dot-indicator"></span>
+        </div>
+
+        <div class="floating-action-icons">
+            <span>♡</span>
+            <span>🔗</span>
+        </div>
+    </div>
+
+    <div class="section-separator"></div>
+
+    <!-- Variants Section -->
+    <div class="variant-options-wrapper">
+        <div class="option-group-title">Colour: <b>Pure Grey</b></div>
+        
+        <div class="option-group-title" style="margin-top: 12px;">SSD Capacity: <b>64 GB</b></div>
+        <div class="ssd-buttons-row">
+            <div class="ssd-chip selected">64 GB</div>
+            <div class="ssd-chip">128 GB</div>
+        </div>
+
+        <div class="option-group-title">RAM Memory Size: <b>4 GB</b></div>
+        <div class="ram-cards-row">
+            <!-- Selected RAM Card -->
+            <div class="ram-option-card selected">
+                <div class="ram-card-title">4 GB</div>
+                <div class="ram-card-price">₹20,990<sup>00</sup></div>
+                <span class="ram-card-mrp">₹37,990.00</span>
+            </div>
+
+            <!-- Unselected RAM Card -->
+            <div class="ram-option-card">
+                <div class="ram-card-title">8.0 GB</div>
+                <div class="ram-card-subtext">See available<br>options</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-separator"></div>
+
+    <!-- Pricing and Buy Actions Section -->
+    <div class="pricing-action-section">
+        <div class="price-row">
+            <div class="discount-percent">-45%</div>
+            <div class="current-price-display">
+                <span style="font-size: 14px; margin-top: 2px;">₹</span>20,990<sup>00</sup>
+            </div>
+        </div>
+        <div class="mrp-row">M.R.P.: <span>₹37,990.00</span></div>
+        <div class="inclusive-taxes">Inclusive of all taxes</div>
+
+        <!-- Specifications Grid -->
+        <div class="specs-grid-container">
+            <div class="spec-item-box">
+                <span>Brand</span>
+                <b>ASUS</b>
+            </div>
+            <div class="spec-item-box">
+                <span>Model Name</span>
+                <b>CM1405CM4A</b>
+            </div>
+            <div class="spec-item-box">
+                <span>Screen Size</span>
+                <b>14 Inches</b>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons-box">
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="buy-now-btn">Buy Now</button>
+        </div>
+
+        <div class="secure-transaction">
+            <span>🔒</span> Secure transaction
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
             align-items: center;
             gap: 5px;
         }
